@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+__MACOSX/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# C binaries & objects
+*.o
+src/c/matmul_opt
+src/c/matmul_o0
+
+# Java build artifacts
+src/java/build/
+*.class
+
+# Archives & Temporary files
+*.zip
+*.tar.gz
+*.swp
+*.tmp

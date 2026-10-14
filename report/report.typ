@@ -36,15 +36,19 @@
   #text(size: 9pt, style: "italic")[
     Department of Computer Science and Systems, Universidad de Las Palmas de Gran Canaria (ULPGC) \
     Grado en Ciencia e Ingeniería de Datos · Big Data (2026–2027) \
-    `pablomrtinezzz` · GitHub Reproducibility Package
   ]
-  #v(1.2em)
+  #v(0.3em)
+  #text(size: 9pt)[
+    *GitHub Repository:* #link("https://github.com/pablomrtinezzz/big-data-assignments")[https://github.com/pablomrtinezzz/big-data-assignments]
+  ]
+  #v(1.0em)
 ]
 
 // Abstract and Keywords
 #rect(width: 100%, stroke: 0.5pt + luma(180), inset: 10pt, radius: 2pt, fill: luma(250))[
   #text(weight: "bold")[Abstract] —
-  Dense matrix multiplication is a fundamental computational kernel underpinning large-scale numerical linear algebra and big data analytics. This paper presents a rigorous empirical investigation comparing the canonical triple-loop algorithm ($i-j-k$) implemented in C, Java, and Python under strictly controlled experimental conditions. Using an increasing sequence of square matrices ($n in [32, 2048]$), a deterministic SplitMix64 pseudorandom generator, 64-bit IEEE 754 floating-point numbers, and high-resolution monotonic timers, we measure kernel runtime variability (median and interquartile range across 5 repetitions) and process memory footprint (Peak Resident Set Size and managed heap). We evaluate two C compiler configurations (Apple Clang `-O2` and `-O0`), the HotSpot JVM (OpenJDK 22 with C2 tiered compilation), and CPython 3.14.7. Our empirical findings demonstrate that while all implementations scale asymptotically with cubic growth ($T(n) prop n^alpha$ with $alpha approx 3.11 - 3.37$, $R^2 > 0.99$), runtime constant factors diverge by up to $160 times$. The JVM HotSpot C2 compiler converges after warm-up to within 10–15% of optimized C (even surpassing it at $n=512$ due to auto-vectorized fused multiply-accumulate on ARM64 and at $n=2048$ due to cache-miss behavior), whereas Python is severely bounded by bytecode dispatch and object boxing. Under a declared 60-second execution budget, Python is limited to $n <= 1024$ ($n=1024$ completes in 42.16s, while $n=1536$ times out exceeding 60s), whereas C and Java scale feasibly to $n=2048$ in 29.57s and 19.83s, respectively. Python's memory footprint is $4 times$ larger than raw 64-bit payloads due to `PyFloatObject` boxing. All code, datasets, and scripts are packaged for exact reproducibility.
+  Dense matrix multiplication is a fundamental computational kernel underpinning large-scale numerical linear algebra and big data analytics. This paper presents a rigorous empirical investigation comparing the canonical triple-loop algorithm ($i-j-k$) implemented in C, Java, and Python under strictly controlled experimental conditions. Using an increasing sequence of square matrices ($n in [32, 2048]$), a deterministic SplitMix64 pseudorandom generator, 64-bit IEEE 754 floating-point numbers, and high-resolution monotonic timers, we measure kernel runtime variability (median and interquartile range across 5 repetitions) and process memory footprint (Peak Resident Set Size and managed heap). We evaluate two C compiler configurations (Apple Clang `-O2` and `-O0`), the HotSpot JVM (OpenJDK 22 with C2 tiered compilation), and CPython 3.14.7. Our empirical findings demonstrate that while all implementations scale asymptotically with cubic growth ($T(n) prop n^alpha$ with $alpha approx 3.11 - 3.37$, $R^2 > 0.99$), runtime constant factors diverge by up to $160 times$. The JVM HotSpot C2 compiler converges after warm-up to within 10–15% of optimized C (even surpassing it at $n=512$ due to auto-vectorized fused multiply-accumulate on ARM64 and at $n=2048$ due to cache-miss behavior), whereas Python is severely bounded by bytecode dispatch and object boxing. Under a declared 60-second execution budget, Python is limited to $n <= 1024$ ($n=1024$ completes in 42.16s, while $n=1536$ times out exceeding 60s), whereas C and Java scale feasibly to $n=2048$ in 29.57s and 19.83s, respectively. Python's memory footprint is $4 times$ larger than raw 64-bit payloads due to `PyFloatObject` boxing. All source code, datasets, benchmarks, and reproduction scripts are published at #link("https://github.com/pablomrtinezzz/big-data-assignments")[https://github.com/pablomrtinezzz/big-data-assignments].
+
 
   #v(0.4em)
   #text(weight: "bold")[Keywords] — Matrix multiplication, algorithmic scaling, memory layout, C, Java, Python, benchmarking protocol, cache locality, JIT compilation.
@@ -235,10 +239,10 @@ Future work in Assignment 2 will explore algorithmic optimisations—specificall
 
 #v(1em)
 == Reproducibility Materials & Code
-The complete source code, benchmark harnesses, raw CSV datasets, analysis scripts, and build files are organized as follows:
-- *Repository:* `https://github.com/pablomrtinezzz/big-data-assignments`
-- *Materials Archive:* `Assignment01_Martinez_Materials.zip`
-- *One-Command Reproduction:* `make all`
+In accordance with course submission guidelines (where only a single standalone PDF report is accepted for evaluation), all source code, test suites, benchmark harnesses, raw CSV datasets, analysis scripts, and build orchestrators are openly available in the project's GitHub repository:
+- *GitHub Repository:* #link("https://github.com/pablomrtinezzz/big-data-assignments")[https://github.com/pablomrtinezzz/big-data-assignments]
+- *One-Command Reproduction:* `make all` (automatically compiles C and Java implementations, executes correctness verification, runs the full benchmark suite across all matrix sizes, reproduces all figures and summary tables, and compiles this PDF manuscript).
+
 
 #v(0.8em)
 == Generative AI Disclosure
