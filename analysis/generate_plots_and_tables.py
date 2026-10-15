@@ -96,6 +96,13 @@ def plot_runtime_comparison(df):
     ax2.axhline(60.0, color="gray", linestyle=":", linewidth=1.2, label="Time Budget (60s)")
     ax2.text(35, 65, "Timeout Threshold (60 s)", color="gray", fontsize=8, verticalalignment="bottom")
 
+    # Mark cache working set boundaries for strided operand B (8*n^2 bytes)
+    # L1D = 64 KB -> n ~ 90; L2 = 16 MB -> n ~ 1448
+    ax2.axvline(90, color="navy", linestyle="-.", linewidth=0.8, alpha=0.5)
+    ax2.text(94, 1.5e-5, "Operand $B >$ L1D (64KB)", color="navy", fontsize=7, rotation=90, verticalalignment="bottom")
+    ax2.axvline(1448, color="purple", linestyle="-.", linewidth=0.8, alpha=0.5)
+    ax2.text(1490, 1.5e-5, "Operand $B >$ L2 (16MB)", color="purple", fontsize=7, rotation=90, verticalalignment="bottom")
+
     ax2.set_xlabel("Matrix Dimension $n$ ($n \\times n$, log scale)")
     ax2.set_ylabel("Execution Time (seconds, log scale)")
     ax2.set_title("(b) Algorithmic Scaling (Log-Log Scale)")
