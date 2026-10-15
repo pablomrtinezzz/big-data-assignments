@@ -1,7 +1,7 @@
 # Assignment 1: Basic Matrix Multiplication in Different Languages (Python, Java, C)
 
 **Course:** Big Data (Academic Year 2026–2027)  
-**Degree:** Grado en Ciencia e Ingeniería de Datos (GCID)  
+**Degree:** Grado en Ingeniería y Ciencia de Datos (GICD)  
 **Institution:** Universidad de Las Palmas de Gran Canaria (ULPGC)  
 **Author:** Pablo Martínez Suárez  
 **GitHub Repository:** [https://github.com/pablomrtinezzz/big-data-assignments](https://github.com/pablomrtinezzz/big-data-assignments)
@@ -80,7 +80,7 @@ All reported experiments were executed under controlled single-user conditions:
   - **C:** Apple Clang 21.0.0 (`clang-2100.1.1.101`). Evaluated flags: `-O2 -Wall -Wextra -std=c99` and `-O0`.
   - **Java:** OpenJDK 22.0.2 (64-Bit Server VM, mixed mode, tiered compilation enabled).
   - **Python:** CPython 3.14.7 (macOS arm64 build).
-  - **Typesetting:** Typst v0.11.0+.
+  - **Typesetting:** Typst v0.15.1 (compatible with v0.11.0+).
 
 ---
 
@@ -175,5 +175,5 @@ make all
 ---
 
 ## 7. Generative AI Disclosure
-
-In accordance with course guidelines (Section 9), generative AI tools were consulted for manuscript language editing, script boilerplate structuring, and plotting formatting. All code implementations, experimental protocols, empirical measurements, and architectural conclusions were designed, executed, and defended by the author.
+ 
+In compliance with the course generative AI policy, AI assistance tools (Anthropic Claude and Google Gemini via the Antigravity assistant) were consulted for manuscript language editing, script boilerplate structuring, plotting layout formatting, and code review. All core algorithm implementations, experimental protocols, empirical measurements, and architectural conclusions were designed, executed, and defended by the author.

@@ -1,6 +1,6 @@
 #set page(
   paper: "a4",
-  margin: (x: 1.8cm, top: 2.2cm, bottom: 2.2cm),
+  margin: (x: 1.6cm, top: 2.0cm, bottom: 2.0cm),
   header: align(right)[
     #text(size: 8pt, fill: luma(100))[
       Big Data · Individual Assignment 1 · Academic Year 2026–2027
@@ -35,7 +35,7 @@
   #v(0.2em)
   #text(size: 9pt, style: "italic")[
     Department of Computer Science and Systems, Universidad de Las Palmas de Gran Canaria (ULPGC) \
-    Grado en Ciencia e Ingeniería de Datos · Big Data (2026–2027) \
+    Grado en Ingeniería y Ciencia de Datos · Big Data (2026–2027) \
   ]
   #v(0.3em)
   #text(size: 9pt)[
@@ -47,8 +47,7 @@
 // Abstract and Keywords
 #rect(width: 100%, stroke: 0.5pt + luma(180), inset: 10pt, radius: 2pt, fill: luma(250))[
   #text(weight: "bold")[Abstract] —
-  Dense matrix multiplication is a fundamental computational kernel underpinning large-scale numerical linear algebra and big data analytics. This paper presents a rigorous empirical investigation comparing the canonical triple-loop algorithm ($i-j-k$) implemented in C, Java, and Python under strictly controlled experimental conditions. Using an increasing sequence of square matrices ($n in [32, 2048]$), a deterministic SplitMix64 pseudorandom generator, 64-bit IEEE 754 floating-point numbers, and high-resolution monotonic timers, we measure kernel runtime variability (median and interquartile range across 5 repetitions) and process memory footprint (Peak Resident Set Size and managed heap). We evaluate two C compiler configurations (Apple Clang `-O2` and `-O0`), the HotSpot JVM (OpenJDK 22 with C2 tiered compilation), and CPython 3.14.7. Our empirical findings demonstrate that while all implementations scale asymptotically with cubic growth ($T(n) prop n^alpha$ with $alpha approx 3.11 - 3.37$, $R^2 > 0.99$), runtime constant factors diverge by up to $160 times$. The JVM HotSpot C2 compiler converges after warm-up to within 10–15% of optimized C (even surpassing it at $n=512$ due to auto-vectorized fused multiply-accumulate on ARM64 and at $n=2048$ due to cache-miss behavior), whereas Python is severely bounded by bytecode dispatch and object boxing. Under a declared 60-second execution budget, Python is limited to $n <= 1024$ ($n=1024$ completes in 42.16s, while $n=1536$ times out exceeding 60s), whereas C and Java scale feasibly to $n=2048$ in 29.57s and 19.83s, respectively. Python's memory footprint is $4 times$ larger than raw 64-bit payloads due to `PyFloatObject` boxing. All source code, datasets, benchmarks, and reproduction scripts are published at #link("https://github.com/pablomrtinezzz/big-data-assignments")[https://github.com/pablomrtinezzz/big-data-assignments].
-
+  Dense matrix multiplication is a foundational computational kernel in large-scale numerical linear algebra and data engineering. This paper presents a controlled empirical investigation comparing the canonical triple-loop algorithm ($i-j-k$) implemented in C, Java, and Python under identical experimental constraints. Across square matrix dimensions $n in [32, 2048]$ with 64-bit floating-point arithmetic and deterministic pseudo-random inputs, we evaluate kernel execution time, throughput, variability, and memory footprint. We assess two C optimization levels (Clang `-O2` and `-O0`), the HotSpot JVM (OpenJDK 22 with C2 tiered compilation), and CPython 3.14.7. While all implementations scale with asymptotic cubic growth ($alpha approx 3.11 - 3.37$, $R^2 > 0.99$), execution constant factors diverge by up to $160 times$. On the evaluated Apple M2 platform, warm-up enables Java's JIT compiler to reach performance parity with optimized C, whereas CPython is severely bottlenecked by dynamic type dispatch and object boxing. Under a 60-second budget per repetition, Python is constrained to $n <= 1024$, whereas C and Java execute up to $n = 2048$. Reproducibility artifacts, source code, and raw measurement logs are publicly available on GitHub at #link("https://github.com/pablomrtinezzz/big-data-assignments").
 
   #v(0.4em)
   #text(weight: "bold")[Keywords] — Matrix multiplication, algorithmic scaling, memory layout, C, Java, Python, benchmarking protocol, cache locality, JIT compilation.
@@ -78,7 +77,7 @@ This investigation addresses the following core research question:
 We formulate four testable empirical hypotheses:
 - *$H_1$ (Algorithmic Scaling):* All implementations will exhibit an empirical scaling exponent $alpha approx 3.0$ matching the theoretical $O(n^3)$ model, but interpreter overhead and dynamic type resolution will shift Python's constant factor $c$ by over an order of magnitude relative to C.
 - *$H_2$ (JIT Compiler Convergence):* Following sufficient warm-up iterations, Java's HotSpot C2 compiler will achieve execution times within a factor of $1.5 times$ of optimized C (`-O2`), vastly outperforming unoptimized C (`-O0`).
-- *$H_3$ (Memory Layout Divergence):* Memory consumption will scale quadratically ($O(n^2)$), but Python will require approximately $4 times$ more memory than the theoretical 64-bit payload ($24 n^2$ bytes) due to object boxing (`PyFloatObject`), whereas C will exhibit near-zero allocation overhead.
+- *$H_3$ (Memory Layout Divergence):* Memory consumption will scale quadratically ($O(n^2)$). Due to `PyFloatObject` boxing and list pointer overhead, Python will exhibit a theoretical $4 times$ data storage expansion (32 bytes vs. 8 bytes per element) and substantially higher process resident memory, whereas C will allocate flat continuous buffers with minimal footprint overhead.
 - *$H_4$ (Feasible Operational Boundaries):* Under a declared execution budget of 60 seconds per repetition, Python will reach its feasibility limit at $n <= 1024$, triggering timeouts at $n = 1536$, whereas C and Java will scale feasibly to $n >= 2048$.
 
 = Background & Theoretical Foundations
@@ -166,6 +165,10 @@ At $n=1536$, cubic projection predicts a Python runtime of $42.16 times (1536/10
 
 In contrast, C (`-O2`), C (`-O0`), and Java successfully completed $n=1536$ in 4.27s, 15.82s, and 5.53s, respectively, and completed $n=2048$ in 29.57s, 48.03s, and 19.83s, well within the 60-second ceiling.
 
+As illustrated in Figure 2(a) and Table 1, computational throughput ($"GFLOPS" = 2n^3 / (T dot 10^9)$) peaks at small, cache-resident dimensions ($5.04$ GFLOPS for C `-O2` at $n=32$) and gradually settles into memory-bound throughput ($1.77$ GFLOPS at $n=1024$) as matrix stride latencies accumulate. Unoptimized C (`-O0`) plateaus around $0.55 - 0.61$ GFLOPS, while Java scales from $0.63$ GFLOPS ($n=32$) to peak at $2.78$ GFLOPS ($n=128$) and $2.33$ GFLOPS ($n=512$). Conversely, Python fails to exceed $0.067$ GFLOPS across all matrix sizes (< 1.5% of C peak performance).
+
+Additionally, Table 1 reveals noticeable relative dispersion for Java at $n=64$ (median $0.460$ ms, IQR $0.420$ ms). At sub-millisecond execution times, despite $W=3$ warm-up iterations, tiered compilation transitions (from Tier 2/3 client profiling to Tier 4 C2 server code) occasionally span the initial measured repetitions, introducing brief transient variance before steady-state performance stabilizes.
+
 #figure(
   image("figures/fig2_throughput_speedup.png", width: 100%),
   caption: [(a) Effective computational throughput in GFLOPS ($2n^3 / T$). (b) Slowdown ratio relative to C (Clang `-O2`).]
@@ -189,12 +192,14 @@ All four configurations exhibit scaling exponents closely tracking the theoretic
 
 == Memory Footprint Analysis
 Figure 3 and Table 1 depict the memory scaling behaviors:
-1. *Theoretical Payload ($24 n^2$ bytes):* At $n=1024$, the three matrices require $24 times 1024^2 = 25.17$ MB. At $n=2048$, they require $100.66$ MB.
-2. *C Peak RSS:* C displays a minimal base footprint of 1.3 MB at $n=32$. As $n$ grows, Peak RSS matches the allocated buffer size with minimal allocator overhead (25.3 MB at $n=1024$, 97.3 MB at $n=2048$).
-3. *Java Peak RSS & Heap:* The JVM HotSpot runtime incurs an initial resident set size baseline for class loading, VM metadata, and JIT compilation buffers. As matrix size grows, managed heap usage tracks the theoretical array footprint closely ($25.2$ MB heap at $n=1024$).
-4. *Python Memory Inflation:* Python displays a baseline RSS of $approx 21.0$ MB for the CPython binary and standard library. At $n=1024$, Python's Peak RSS reaches 326.1 MB—over $12.9 times$ the raw data payload. Heap tracking via `tracemalloc` confirms that the internal Python objects for $n=1024$ consume $100.7$ MB, precisely $4.0 times$ the raw 64-bit double payload.
+1. *Theoretical Payload ($24 n^2$ bytes):* At $n=1024$, the raw data payload for the three matrices $A, B, C$ requires $24 times 1024^2$ bytes ($24.0$ MiB / $25.17$ MB decimal). At $n=2048$, the raw payload requires $96.0$ MiB ($100.66$ MB).
+2. *C Peak RSS:* C displays a minimal base footprint of $1.3$ MiB at $n=32$. Peak RSS matches the allocated buffer size with minimal allocator overhead ($25.3$ MiB at $n=1024$, $97.3$ MiB at $n=2048$).
+3. *Java Managed Heap:* Managed heap allocation tracked via `Runtime.getRuntime()` closely matches the required array footprint at scale ($23.8$ MiB at $n=1024$, $97.1$ MiB at $n=2048$). For $n <= 128$, measured heap deltas fall below $1.0$ MiB because small matrix arrays fit directly into the pre-allocated JVM thread-local nursery space without triggering heap resize.
+4. *Python Memory Overhead:* Theoretically, each boxed `PyFloatObject` (24 bytes) combined with an enclosing list reference pointer (8 bytes) consumes 32 bytes per entry—a $4.0 times$ expansion over an 8-byte primitive double. Empirically at $n=1024$, heap allocation measured via `tracemalloc` reached $74.0$ MiB ($77.6$ MB, a $3.08 times$ increase over the raw 24.0 MiB payload), reflecting amortized list resizing. At the operating system level, CPython's overall process Peak RSS reached $326.1$ MiB ($342.0$ MB)—a $13.59 times$ expansion over the raw data payload—driven by interpreter binary mapping, object allocator arenas (`pymalloc`), and heap fragmentation.
 
-= Discussion & Architectural Interpretation
+*Caveat on cross-language memory comparison:* The Memory column in Table 1 reports *heterogeneous metrics* as required by the course protocol. C and Python values reflect process Peak Resident Set Size (RSS) via `getrusage`, whereas Java values (marked †) reflect JVM managed heap delta via `Runtime.getRuntime()`. These metrics are not directly interchangeable: Java's JVM runtime incurs native memory overhead (metaspace, JIT code buffers, garbage collector tables, thread stacks) that is not visible in the managed heap metric. While individual growth trends are internally consistent, direct cross-language absolute comparisons of the Memory column must account for this distinction.
+
+= Discussion
 
 == Compilation vs. Interpretation
 The empirical results dramatically illustrate the performance implications of language runtime architectures:
@@ -231,8 +236,8 @@ We acknowledge several experimental boundaries:
 This research systematically investigated basic dense matrix multiplication across C, Java, and Python under controlled execution conditions. The empirical findings establish that:
 1. *Algorithmic Scaling:* All three languages exhibit cubic complexity ($T prop n^3$) with empirical exponents $alpha approx 3.11 - 3.37$ ($R^2 > 0.99$).
 2. *Runtime Disparity:* Runtime constant factors differ by over two orders of magnitude ($160 times$). Python is $25 times - 35 times$ slower than optimized C and Java. Unoptimized C (`-O0`) is $approx 3.2 times$ slower than `-O2`, but retains an $11 times$ advantage over interpreted Python.
-3. *JIT Compiler Parity:* With adequate warm-up, Java's HotSpot C2 compiler achieves performance competitive with native compiled C (`-O2`), even outperforming it at cache-bound scales.
-4. *Memory Inflation:* Python incurs a $4 times$ memory penalty on data storage ($32$ bytes/float vs. $8$ bytes) due to object boxing and list pointer overhead, and a $12.9 times$ process RSS footprint at $n=1024$.
+3. *JIT Compiler Parity:* With adequate warm-up on the evaluated Apple M2 ARM64 platform, Java's HotSpot C2 compiler achieves performance competitive with native compiled C (`-O2`), even outperforming it at cache-bound scales due to NEON fused multiply-accumulate loop transformations.
+4. *Memory Inflation:* Python incurs a theoretical $4 times$ per-element storage overhead (32 bytes vs. 8 bytes) due to object boxing, resulting in a $3.08 times$ empirical heap increase and a $13.59 times$ process Peak RSS expansion ($326.1$ MiB) relative to raw 64-bit payloads at $n=1024$.
 5. *Feasibility Boundaries:* Under a 60-second execution budget, Python is limited to $n <= 1024$ ($n=1536$ timed out), whereas C and Java comfortably scale to $n = 2048$.
 
 Future work in Assignment 2 will explore algorithmic optimisations—specifically cache-tiling and loop reordering ($i-k-j$)—to overcome the memory stride bottleneck observed in this baseline study.
@@ -246,7 +251,7 @@ In accordance with course submission guidelines (where only a single standalone 
 
 #v(0.8em)
 == Generative AI Disclosure
-In compliance with the course policy (Section 9), generative AI tools were consulted for manuscript language editing, script boilerplate structuring, and plotting layout assistance. All code implementations, experimental protocols, empirical measurements, and architectural conclusions were designed, executed, and validated by the author.
+In compliance with the course generative AI policy, AI assistance tools (Anthropic Claude and Google Gemini via the Antigravity assistant) were consulted for manuscript language editing, script boilerplate structuring, plotting layout formatting, and code review. All core algorithm implementations, experimental protocols, empirical measurements, and architectural conclusions were designed, executed, and validated by the author.
 
 #v(1em)
 #bibliography("references.bib", style: "ieee")
