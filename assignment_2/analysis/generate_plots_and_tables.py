@@ -209,7 +209,7 @@ def generate_typst_tables(dense_df: pd.DataFrame, sparse_df: pd.DataFrame):
         f.write("  columns: (auto, auto, auto, auto, auto, auto, auto),\n")
         f.write("  stroke: (x, y) => if y == 0 { (bottom: 1.2pt) } else if y == 1 { (bottom: 0.8pt) } else { none },\n")
         f.write("  align: (center, center, center, center, center, center, center),\n")
-        f.write(f"  table.header([*Sparsity $\\rho$*], [*Input NNZ*], [*Output NNZ*], [*Fill-in*], [*CSR Kernel Time*], [*Speedup vs Dense*], [*Memory Sav.*]),\n")
+        f.write(f"  table.header([*Sparsity $rho$*], [*Input NNZ*], [*Output NNZ*], [*Fill-in*], [*CSR Kernel Time*], [*Speedup vs Dense*], [*Memory Sav.*]),\n")
 
         for _, row in sub_sparse.iterrows():
             rho_pct = f"{row['target_sparsity']*100:.1f}%"

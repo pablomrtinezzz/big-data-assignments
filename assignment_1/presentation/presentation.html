@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 1 Presentation | Pablo Martínez Suárez</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #151f32;
+      --border: #22314e;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --rose: #f87171;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* Top control bar */
+    header {
+      height: 52px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+    }
+
+    .title-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .doc-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timer-display {
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #1e293b;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #334155;
+      border-color: var(--blue);
+    }
+
+    .btn.active {
+      background: var(--blue);
+      color: #0b0f19;
+      border-color: var(--blue);
+    }
+
+    /* Main presentation container */
+    main {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .slide-wrapper {
+      width: 100%;
+      max-width: 1333px; /* 16:9 ratio with max-height 750px */
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+    }
+
+    .slide-wrapper img.active {
+      display: block;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.995); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Floating Navigation buttons */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      z-index: 50;
+    }
+
+    .nav-arrow:hover {
+      background: var(--blue);
+      color: #000;
+      border-color: var(--blue);
+    }
+
+    .nav-prev { left: 35px; }
+    .nav-next { right: 35px; }
+
+    /* Speaker Notes Sidebar */
+    .speaker-panel {
+      width: 420px;
+      background: #0f172a;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: margin-right 0.3s ease;
+      z-index: 60;
+    }
+
+    .speaker-panel.hidden {
+      margin-right: -420px;
+    }
+
+    .notes-header {
+      padding: 14px 16px;
+      background: #131d31;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notes-header h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .notes-time-target {
+      font-size: 11px;
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    .notes-body {
+      flex: 1;
+      padding: 18px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    .note-section {
+      margin-bottom: 16px;
+      background: #172237;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #1e2e4a;
+    }
+
+    .note-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .note-speech {
+      font-style: italic;
+      color: #f1f5f9;
+      background: rgba(0,0,0,0.2);
+      padding: 8px 10px;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 4px 4px 0;
+      margin: 6px 0;
+    }
+
+    .key-points-list {
+      padding-left: 18px;
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: #cbd5e1;
+    }
+
+    .key-points-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Footer / Progress Bar */
+    footer {
+      height: 40px;
+      background: #0f172a;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 24px;
+      height: 6px;
+      border-radius: 3px;
+      background: #1e293b;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      width: 40px;
+      background: var(--blue);
+    }
+
+    .hotkeys-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    kbd {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 10px;
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header>
+    <div class="title-box">
+      <span class="badge">BIG DATA · GICD</span>
+      <span class="doc-title">Assignment 1: Matrix Multiplication Across C, Java, and Python</span>
+    </div>
+    <div class="controls">
+      <div class="timer-display" id="timerBox">⏱️ 00:00 / 05:00</div>
+      <button class="btn" id="timerToggleBtn" onclick="toggleTimer()">Start Timer</button>
+      <button class="btn" id="timerResetBtn" onclick="resetTimer()">Reset</button>
+      <button class="btn active" id="notesToggleBtn" onclick="toggleNotes()">Notes (N)</button>
+      <button class="btn" onclick="toggleFullscreen()">Fullscreen (F)</button>
+      <a href="Assignment01_Presentation.pdf" target="_blank" class="btn" style="text-decoration: none; color: var(--text);">📄 Open PDF</a>
+    </div>
+  </header>
+
+  <!-- Main Presentation Area -->
+  <main>
+    <div class="stage">
+      <button class="nav-arrow nav-prev" onclick="prevSlide()">❮</button>
+      
+      <div class="slide-wrapper" id="slideFrame">
+        <img src="slides/slide_1.png" alt="Slide 1" class="active" id="slideImg1">
+        <img src="slides/slide_2.png" alt="Slide 2" id="slideImg2">
+        <img src="slides/slide_3.png" alt="Slide 3" id="slideImg3">
+        <img src="slides/slide_4.png" alt="Slide 4" id="slideImg4">
+      </div>
+
+      <button class="nav-arrow nav-next" onclick="nextSlide()">❯</button>
+    </div>
+
+    <!-- Speaker Notes Sidebar -->
+    <aside class="speaker-panel" id="speakerPanel">
+      <div class="notes-header">
+        <h3 id="notesSlideTitle">Slide 1: Experimental Protocol</h3>
+        <span class="notes-time-target" id="notesTimeTarget">0:00 - 0:45 min</span>
+      </div>
+      <div class="notes-body" id="notesContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </aside>
+  </main>
+
+  <!-- Bottom dots and shortcuts -->
+  <footer>
+    <div class="slide-dots">
+      <div class="dot active" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+      <div class="dot" onclick="goToSlide(4)"></div>
+    </div>
+    <div class="hotkeys-hint">
+      Shortcuts: <kbd>←</kbd> <kbd>→</kbd> Navigate &nbsp;|&nbsp; <kbd>Space</kbd> Next &nbsp;|&nbsp; <kbd>N</kbd> Notes &nbsp;|&nbsp; <kbd>F</kbd> Fullscreen &nbsp;|&nbsp; <kbd>T</kbd> Timer
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 4;
+
+    const slideNotes = {
+      1: {
+        title: "Slide 1: Experimental Setup & Protocol",
+        time: "0:00 - 0:45 (Objetivo: 45s)",
+        html: `
+          <div class="note-section">
+            <div class="note-section-title">🎯 Objetivo de la Diapositiva</div>
+            <div>Sentar las bases del experimento: demostrar que la comparación es 100% justa, científica y reproducible entre C, Java y Python.</div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🗣️ Guión Sugerido (Qué decir en español)</div>
+            <div class="note-speech">
+              "Buenos días. Hoy presento el análisis experimental del producto canónico de matrices a través de tres paradigmas de ejecución: compilado nativo AOT en C, máquina virtual gestionada JIT en Java, e interpretado en Python.<br><br>
+              Nuestra pregunta central es: ¿cómo afecta la arquitectura del runtime al tiempo de ejecución y memoria manteniendo estrictamente idénticos el algoritmo i-j-k, la precisión doble de 64 bits y los datos de entrada?<br><br>
+              Para garantizar rigor total, usamos el generador pseudoaleatorio determinista SplitMix64 con semilla 42 en los tres lenguajes. El cronómetro aísla única y exclusivamente el bucle aritmético, medimos 5 repeticiones reportando mediana e IQR, aplicamos calentamiento previo para estabilizar el JIT de Java y protegemos contra eliminación de código muerto mediante un checksum final."
+            </div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🔑 Cifras Clave a Recordar</div>
+            <ul class="key-points-list">
+              <li><b>Hardware:</b> Apple M2 (ARMv8.5-A), 8 núcleos, 8 GB memoria unificada, monohilo.</li>
+              <li><b>Dimensiones:</b> 10 tamaños desde n=32 hasta n=2048.</li>
+              <li><b>Límite de tiempo:</b> Timeout estricto de 60.0 segundos por repetición.</li>
+              <li><b>Verificación:</b> Error relativo Frobenius < 10⁻¹² contra NumPy BLAS.</li>
+            </ul>
+          </div>
+        `
+      },
+      2: {
+        title: "Slide 2: Runtime Scaling & Timeout Wall",
+        time: "0:45 - 1:45 (Objetivo: 60s)",
+        html: `
+          <div class="note-section">
+            <div class="note-section-title">🎯 Objetivo de la Diapositiva</div>
+            <div>Mostrar que la teoría O(n³) se cumple, pero la diferencia de factores constantes es abismal, llevando a Python al límite del timeout.</div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🗣️ Guión Sugerido (Qué decir en español)</div>
+            <div class="note-speech">
+              "En esta segunda diapositiva vemos el tiempo de ejecución. Al ajustar las curvas a la ley de potencias T(n) = c · n^α, confirmamos que todos los lenguajes escalan de forma cúbica con alfa cercano a 3.10.<br><br>
+              Sin embargo, el factor constante diverge radicalmente: la constante c de Python es 189 veces mayor que la de C con -O2.<br><br>
+              Fijémonos en n = 1024: C optimizado tarda solo 1.2 segundos, Java tarda 1.76 segundos, mientras que Python se dispara a 41.15 segundos, siendo 34 veces más lento.<br><br>
+              Y aquí surge el hallazgo crítico: la barrera de los 60 segundos. Al saltar a n = 1536, la proyección cúbica predecía 139 segundos para Python. Nuestro benchmark cortó la ejecución inmediatamente por timeout. Por tanto, el techo operativo de Python es estrictamente n = 1024, mientras que C y Java alcanzan n = 2048 sin problemas."
+            </div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🔑 Cifras Clave a Recordar</div>
+            <ul class="key-points-list">
+              <li><b>En n = 1024:</b> C -O2 (1.21s) | Java (1.76s) | C -O0 (3.80s) | Python (41.15s).</li>
+              <li><b>Overhead basal:</b> Factor 189x en la constante c entre Python y C.</li>
+              <li><b>Python Timeout:</b> En n=1536 superó los 60s y fue abortado (n_max factible = 1024).</li>
+              <li><b>Exponente de C -O2:</b> 3.38 (penalización de caché DRAM en n grande).</li>
+            </ul>
+          </div>
+        `
+      },
+      3: {
+        title: "Slide 3: Architectural Deep Dive",
+        time: "1:45 - 2:50 (Objetivo: 65s)",
+        html: `
+          <div class="note-section">
+            <div class="note-section-title">🎯 Objetivo de la Diapositiva</div>
+            <div>Explicar por qué Python es tan lento y cómo Java HotSpot logra competir directamente con C optimizado.</div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🗣️ Guión Sugerido (Qué decir en español)</div>
+            <div class="note-speech">
+              "¿Por qué vemos esta discrepancia tan brutal? Analicemos la arquitectura de cada runtime.<br><br>
+              En Python, el rendimiento colapsa a 0.06 GFLOPS. Esto se debe a dos cuellos de botella: el bucle de evaluación del intérprete ceval.c y el boxing dinámico. Cada número flotante no es un valor en registro, sino un objeto en el heap de 24 bytes (PyFloatObject). Para cada suma o multiplicación, la CPU debe hacer un doble salto de punteros, destruyendo la tubería de ejecución.<br><br>
+              En el otro extremo, tenemos la gran sorpresa: Java con el compilador JIT HotSpot C2. Tras el calentamiento, Java alcanza paridad total con C optimizado. De hecho, en n = 2048 Java tarda 19.1 segundos frente a los 29 segundos de C. Al inspeccionar el desensamblado, vemos que el C2 desenrolla el bucle y vectoriza con registros NEON en ARM64.<br><br>
+              Por último, la comparación de C con -O2 frente a -O0 demuestra que -O0 es 3.15 veces más lento porque vuelca el acumulador sum a la pila en cada iteración. Pero aún así, ¡C -O0 es 11 veces más rápido que Python!"
+            </div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🔑 Cifras Clave a Recordar</div>
+            <ul class="key-points-list">
+              <li><b>Throughput Python:</b> 0.06 GFLOPS (< 1.5% del pico de C).</li>
+              <li><b>Java C2 JIT:</b> Desenrollado + instrucciones NEON FMA (Fused Multiply-Add).</li>
+              <li><b>Warm-up:</b> La primera ejecución en frío de Java fue 3.5x más lenta.</li>
+              <li><b>C -O0 vs -O2:</b> 3.15x diferencia por volcado a memoria (stack spill).</li>
+            </ul>
+          </div>
+        `
+      },
+      4: {
+        title: "Slide 4: Memory Footprint & Takeaways",
+        time: "2:50 - 3:45 (Objetivo: 55s)",
+        html: `
+          <div class="note-section">
+            <div class="note-section-title">🎯 Objetivo de la Diapositiva</div>
+            <div>Demostrar la inflación de memoria en Python, el muro de caché L2 por el salto de columna, y cerrar con las conclusiones de Big Data.</div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🗣️ Guión Sugerido (Qué decir en español)</div>
+            <div class="note-speech">
+              "Finalmente, examinemos la memoria y las lecciones para Big Data.<br><br>
+              La carga útil teórica de 3 matrices de dobles es de 24n² bytes. En n = 1024 son 24 MB. C y Java se ajustan milimétricamente a este tamaño (25.3 MB y 23.8 MB respectivamente).<br><br>
+              En cambio, en Python el consumo del proceso se dispara a 306.3 MB, ¡un factor de expansión de casi 13 veces! Esto se debe al overhead de las arenas de pymalloc y a los 32 bytes reales que cuesta cada elemento encapsulado.<br><br>
+              Además, observen el cuello de botella de hardware: en el bucle i-j-k recorremos la matriz B por columnas. Cuando n=2048, la matriz B ocupa 32 MB, desbordando la caché L2 compartida de 16 MB del chip M2, forzando fallos de caché continuos.<br><br>
+              Las conclusiones para Big Data son claras: jamás implementar bucles numéricos en Python puro; confiar en kernels C/BLAS o JITs maduros; y como puente a la Práctica 2, reordenar el bucle a i-k-j y aplicar cache-tiling para romper el muro de memoria. Muchas gracias."
+            </div>
+          </div>
+
+          <div class="note-section">
+            <div class="note-section-title">🔑 Cifras Clave a Recordar</div>
+            <ul class="key-points-list">
+              <li><b>Payload teórico n=1024:</b> 24.0 MB (3 matrices x 8 MB).</li>
+              <li><b>C y Java:</b> ~25 MB (escalado plano casi perfecto).</li>
+              <li><b>Python RSS n=1024:</b> 306.3 MB (12.8x expansión sobre payload).</li>
+              <li><b>L2 Cache Wall:</b> 16 MB L2 en M2 vs 32 MB de la matriz B en n=2048.</li>
+              <li><b>Próximo paso:</b> Bucle i-k-j y bloqueo de caché en Assignment 2.</li>
+            </ul>
+          </div>
+        `
+      }
+    };
+
+    function updateSlide() {
+      // Update slide image
+      for (let i = 1; i <= totalSlides; i++) {
+        const img = document.getElementById(`slideImg${i}`);
+        if (img) {
+          if (i === currentSlide) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        }
+      }
+
+      // Update dots
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if (idx + 1 === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Update speaker notes
+      const note = slideNotes[currentSlide];
+      if (note) {
+        document.getElementById('notesSlideTitle').innerText = note.title;
+        document.getElementById('notesTimeTarget').innerText = note.time;
+        document.getElementById('notesContent').innerHTML = note.html;
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(num) {
+      if (num >= 1 && num <= totalSlides) {
+        currentSlide = num;
+        updateSlide();
+      }
+    }
+
+    function toggleNotes() {
+      const panel = document.getElementById('speakerPanel');
+      const btn = document.getElementById('notesToggleBtn');
+      panel.classList.toggle('hidden');
+      btn.classList.toggle('active');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(err);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Presentation Timer
+    let timerInterval = null;
+    let secondsElapsed = 0;
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2, '0');
+      const s = (sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timerToggleBtn');
+      const timerBox = document.getElementById('timerBox');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.innerText = "Resume Timer";
+        btn.classList.remove('active');
+      } else {
+        btn.innerText = "Pause Timer";
+        btn.classList.add('active');
+        timerInterval = setInterval(() => {
+          secondsElapsed++;
+          timerBox.innerText = `⏱️ ${formatTime(secondsElapsed)} / 05:00`;
+          if (secondsElapsed < 180) {
+            timerBox.style.color = "var(--green)";
+          } else if (secondsElapsed < 240) {
+            timerBox.style.color = "var(--amber)";
+          } else {
+            timerBox.style.color = "var(--rose)";
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      secondsElapsed = 0;
+      const timerBox = document.getElementById('timerBox');
+      timerBox.innerText = `⏱️ 00:00 / 05:00`;
+      timerBox.style.color = "var(--green)";
+      const btn = document.getElementById('timerToggleBtn');
+      btn.innerText = "Start Timer";
+      btn.classList.remove('active');
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowRight':
+        case 'PageDown':
+        case ' ':
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+        case 'PageUp':
+          prevSlide();
+          break;
+        case 'Home':
+          goToSlide(1);
+          break;
+        case 'End':
+          goToSlide(totalSlides);
+          break;
+        case 'n':
+        case 'N':
+          toggleNotes();
+          break;
+        case 'f':
+        case 'F':
+          toggleFullscreen();
+          break;
+        case 't':
+        case 'T':
+          toggleTimer();
+          break;
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+          goToSlide(parseInt(e.key));
+          break;
+      }
+    });
+
+    // Initialize
+    updateSlide();
+  </script>
+</body>
+</html>

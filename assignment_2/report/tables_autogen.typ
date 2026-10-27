@@ -19,7 +19,7 @@
   columns: (auto, auto, auto, auto, auto, auto, auto),
   stroke: (x, y) => if y == 0 { (bottom: 1.2pt) } else if y == 1 { (bottom: 0.8pt) } else { none },
   align: (center, center, center, center, center, center, center),
-  table.header([*Sparsity $\rho$*], [*Input NNZ*], [*Output NNZ*], [*Fill-in*], [*CSR Kernel Time*], [*Speedup vs Dense*], [*Memory Sav.*]),
+  table.header([*Sparsity $rho$*], [*Input NNZ*], [*Output NNZ*], [*Fill-in*], [*CSR Kernel Time*], [*Speedup vs Dense*], [*Memory Sav.*]),
   [50.0%], [1048544], [1048576], [2.00x], [0.2013 s], [0.79x], [-100.1%],
   [70.0%], [628508], [1048576], [3.34x], [0.1099 s], [1.45x], [-20.0%],
   [80.0%], [419060], [1048576], [5.00x], [0.0785 s], [2.03x], [-33.3%],

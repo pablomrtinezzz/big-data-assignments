@@ -1,9 +1,9 @@
-.PHONY: all build test benchmark plots report package clean
+.PHONY: all build test benchmark plots report presentation package clean
 
 PYTHON = python3
 TYPST = typst
 
-all: build test benchmark plots report package
+all: build test benchmark plots report presentation package
 
 build:
 	$(MAKE) -C src/c
@@ -20,6 +20,12 @@ plots:
 
 report: plots
 	$(TYPST) compile report/report.typ ./Assignment01_Martinez_Report.pdf
+
+presentation: plots
+	mkdir -p presentation/figures presentation/slides
+	cp -f report/figures/*.png presentation/figures/ 2>/dev/null || true
+	$(TYPST) compile presentation/presentation.typ presentation/Assignment01_Presentation.pdf
+	$(TYPST) compile --format png --ppi 144 presentation/presentation.typ presentation/slides/slide_{p}.png
 
 package: report
 	rm -f Assignment01_Martinez_Materials.zip
