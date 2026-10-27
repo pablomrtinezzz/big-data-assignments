@@ -1,0 +1,172 @@
+{
+  "assignment": 2,
+  "timestamp": "2026-10-27 17:52:09",
+  "elapsed_seconds": 0.4207,
+  "overall_status": "ALL_TESTS_PASSED",
+  "tolerance": 1e-12,
+  "dense_tests": [
+    {
+      "n": 4,
+      "seed": 42,
+      "ref_checksum": 13.57645742603625,
+      "err_baseline": 2.670071645650526e-12,
+      "err_reordered": 2.670071645650526e-12,
+      "err_blocked": 2.670071645650526e-12,
+      "status": "PASS"
+    },
+    {
+      "n": 8,
+      "seed": 42,
+      "ref_checksum": 112.16675242521589,
+      "err_baseline": 1.41643893828419e-13,
+      "err_reordered": 1.41643893828419e-13,
+      "err_blocked": 1.41643893828419e-13,
+      "status": "PASS"
+    },
+    {
+      "n": 16,
+      "seed": 42,
+      "ref_checksum": 1033.6289504001188,
+      "err_baseline": 1.8258017109991826e-14,
+      "err_reordered": 1.8258017109991826e-14,
+      "err_blocked": 1.8258017109991826e-14,
+      "status": "PASS"
+    },
+    {
+      "n": 32,
+      "seed": 42,
+      "ref_checksum": 7913.2349469640285,
+      "err_baseline": 3.5629342416754275e-15,
+      "err_reordered": 3.5629342416754275e-15,
+      "err_blocked": 3.5629342416754275e-15,
+      "status": "PASS"
+    },
+    {
+      "n": 64,
+      "seed": 42,
+      "ref_checksum": 65421.089553298356,
+      "err_baseline": 6.673038615404648e-16,
+      "err_reordered": 6.673038615404648e-16,
+      "err_blocked": 6.673038615404648e-16,
+      "status": "PASS"
+    },
+    {
+      "n": 128,
+      "seed": 42,
+      "ref_checksum": 522654.1904191134,
+      "err_baseline": 8.909548528336264e-16,
+      "err_reordered": 8.909548528336264e-16,
+      "err_blocked": 8.909548528336264e-16,
+      "status": "PASS"
+    },
+    {
+      "n": 256,
+      "seed": 42,
+      "ref_checksum": 4196458.424711505,
+      "err_baseline": 1.5535142642945476e-15,
+      "err_reordered": 1.5535142642945476e-15,
+      "err_blocked": 1.5535142642945476e-15,
+      "status": "PASS"
+    },
+    {
+      "n": 16,
+      "seed": 999,
+      "ref_checksum": 1012.8247671705705,
+      "err_baseline": 2.9184296006302334e-14,
+      "err_reordered": 2.9184296006302334e-14,
+      "err_blocked": 2.9184296006302334e-14,
+      "status": "PASS"
+    },
+    {
+      "n": 64,
+      "seed": 2026,
+      "ref_checksum": 64966.73774436864,
+      "err_baseline": 8.959609630162303e-16,
+      "err_reordered": 8.959609630162303e-16,
+      "err_blocked": 8.959609630162303e-16,
+      "status": "PASS"
+    }
+  ],
+  "sparse_tests": [
+    {
+      "n": 8,
+      "sparsity": 0.5,
+      "seed": 42,
+      "ref_nnz": 57,
+      "c_nnz": 57,
+      "fill_in_ratio": 1.9,
+      "rel_err": 1.7621215147270229e-12,
+      "status": "PASS"
+    },
+    {
+      "n": 16,
+      "sparsity": 0.8,
+      "seed": 42,
+      "ref_nnz": 129,
+      "c_nnz": 129,
+      "fill_in_ratio": 2.480769,
+      "rel_err": 2.827402696991593e-13,
+      "status": "PASS"
+    },
+    {
+      "n": 32,
+      "sparsity": 0.9,
+      "seed": 42,
+      "ref_nnz": 312,
+      "c_nnz": 312,
+      "fill_in_ratio": 2.810811,
+      "rel_err": 4.945143573386511e-13,
+      "status": "PASS"
+    },
+    {
+      "n": 64,
+      "sparsity": 0.95,
+      "seed": 42,
+      "ref_nnz": 632,
+      "c_nnz": 632,
+      "fill_in_ratio": 3.16,
+      "rel_err": 1.3021789593761687e-14,
+      "status": "PASS"
+    },
+    {
+      "n": 128,
+      "sparsity": 0.98,
+      "seed": 42,
+      "ref_nnz": 700,
+      "c_nnz": 700,
+      "fill_in_ratio": 2.250804,
+      "rel_err": 2.2428334468940617e-14,
+      "status": "PASS"
+    },
+    {
+      "n": 256,
+      "sparsity": 0.99,
+      "seed": 42,
+      "ref_nnz": 1634,
+      "c_nnz": 1634,
+      "fill_in_ratio": 2.509985,
+      "rel_err": 8.79355472678916e-15,
+      "status": "PASS"
+    },
+    {
+      "n": 64,
+      "sparsity": 0.9,
+      "seed": 999,
+      "ref_nnz": 1885,
+      "c_nnz": 1885,
+      "fill_in_ratio": 4.597561,
+      "rel_err": 6.0093013052819e-15,
+      "status": "PASS"
+    },
+    {
+      "n": 128,
+      "sparsity": 0.95,
+      "seed": 2026,
+      "ref_nnz": 4545,
+      "c_nnz": 4545,
+      "fill_in_ratio": 5.590406,
+      "rel_err": 1.0927149538247753e-14,
+      "status": "PASS"
+    }
+  ]
+}

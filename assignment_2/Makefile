@@ -14,8 +14,7 @@ build:
 	@if [ -d src/sparse ] && [ -f src/sparse/Makefile ]; then $(MAKE) -C src/sparse; fi
 
 test: build
-	@if [ -f tests/test_dense_optimizations.py ]; then $(PYTHON) tests/test_dense_optimizations.py; fi
-	@if [ -f tests/test_sparse_csr.py ]; then $(PYTHON) tests/test_sparse_csr.py; fi
+	$(PYTHON) tests/run_all_tests.py
 
 benchmark: build
 	@if [ -f benchmarks/run_benchmarks_dense.py ]; then $(PYTHON) benchmarks/run_benchmarks_dense.py; fi
