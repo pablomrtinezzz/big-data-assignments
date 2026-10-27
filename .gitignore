@@ -34,12 +34,13 @@ htmlcov/
 *.dylib
 *.a
 *.out
+matmul_dense
+matmul_sparse
 matmul_opt
 matmul_o0
 matmul_baseline
 matmul_transposed
 matmul_blocked
-matmul_sparse
 
 # Java build artifacts
 *.class
