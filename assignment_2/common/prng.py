@@ -22,3 +22,21 @@ class PRNG:
             row = [self.next_double() for _ in range(n)]
             mat.append(row)
         return mat
+
+    def fill_sparse_matrix(self, n: int, sparsity: float):
+        """
+        Fills an n x n matrix with controlled sparsity in [0.0, 1.0).
+        Sparsity is the fraction of zero entries.
+        """
+        density = 1.0 - sparsity
+        mat = []
+        for _ in range(n):
+            row = []
+            for _ in range(n):
+                if self.next_double() < density:
+                    val = self.next_double()
+                    row.append(1e-6 if val == 0.0 else val)
+                else:
+                    row.append(0.0)
+            mat.append(row)
+        return mat

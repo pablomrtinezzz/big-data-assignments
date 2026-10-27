@@ -35,4 +35,22 @@ static inline void prng_fill_matrix(double *mat, size_t n, prng_t *p) {
     }
 }
 
+/**
+ * Fills an n x n matrix with controlled sparsity rho in [0.0, 1.0).
+ * Sparsity is the fraction of zero entries.
+ * Density is (1.0 - sparsity).
+ */
+static inline void prng_fill_sparse_matrix(double *mat, size_t n, double sparsity, prng_t *p) {
+    size_t total = n * n;
+    double density = 1.0 - sparsity;
+    for (size_t i = 0; i < total; i++) {
+        if (prng_next_double(p) < density) {
+            double val = prng_next_double(p);
+            mat[i] = (val == 0.0) ? 1e-6 : val;
+        } else {
+            mat[i] = 0.0;
+        }
+    }
+}
+
 #endif /* PRNG_H */
