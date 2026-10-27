@@ -1,27 +1,62 @@
-# macOS
+# ==========================================
+# Root .gitignore for big-data-assignments
+# ==========================================
+
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 __MACOSX/
 
-# Python
+# Local convenience aliases/symlinks (spaces in names)
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+
+# Python build & virtual environments
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+.coverage
+htmlcov/
 
-# C binaries & objects
+# C / C++ build outputs
 *.o
-src/c/matmul_opt
-src/c/matmul_o0
+*.obj
+*.so
+*.dylib
+*.a
+*.out
+matmul_opt
+matmul_o0
+matmul_baseline
+matmul_transposed
+matmul_blocked
+matmul_sparse
 
 # Java build artifacts
-src/java/build/
 *.class
+**/build/
+.gradle/
 
-# Archives & Temporary files
+# Archives & Distribution packages
 *.zip
 *.tar.gz
+*.tar.bz2
+*.7z
+
+# Editors & IDE metadata
+.vscode/
+.idea/
 *.swp
+*.swo
+*~
+*.bak
 *.tmp

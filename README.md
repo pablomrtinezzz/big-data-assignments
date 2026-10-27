@@ -1,179 +1,106 @@
-# Assignment 1: Basic Matrix Multiplication in Different Languages (Python, Java, C)
+# Big Data: Individual Empirical Studies on Matrix Multiplication
 
 **Course:** Big Data (Academic Year 2026–2027)  
-**Degree:** Grado en Ingeniería y Ciencia de Datos (GICD)  
+**Degree:** Grado en Ciencia e Ingeniería de Datos (GCID)  
 **Institution:** Universidad de Las Palmas de Gran Canaria (ULPGC)  
 **Author:** Pablo Martínez Suárez  
 **GitHub Repository:** [https://github.com/pablomrtinezzz/big-data-assignments](https://github.com/pablomrtinezzz/big-data-assignments)
 
 ---
 
-## 1. Overview & Research Objective
+## 1. Executive Summary & Progression
 
-This repository contains the complete experimental suite, source code, raw empirical measurements, analysis scripts, and final research report for **Assignment 1: Basic Matrix Multiplication in Different Languages**.
+This repository contains the complete experimental framework, source implementations, automated test suites, empirical benchmarks, data analysis pipelines, and formal research reports for the four individual assignments of the **Big Data** course.
 
-The study investigates how matrix dimension $n$ governs execution time and memory footprint across Ahead-of-Time (AOT) compiled (C), Just-in-Time (JIT) managed (Java HotSpot), and interpreted (CPython) execution environments when algorithmic structure ($i\text{-}j\text{-}k$ triple-loop), numerical precision (64-bit IEEE 754 floats), and input data are held strictly constant.
+Across all assignments, the core computational workload centers on **square matrix multiplication ($n \times n$)**, systematically studying execution runtime, memory footprint, cache efficiency, parallelism, and distributed scalability.
+
+| Assignment | Research Focus | Key Implementations | Status | Report Link |
+| :--- | :--- | :--- | :---: | :---: |
+| **[Assignment 1](./assignment_1/)** | Language & Runtime Overhead | C (AOT, -O2 vs -O0), Java HotSpot (JIT), CPython (Interpreted) | Completed | [`Assignment01_Martinez_Report.pdf`](./assignment_1/Assignment01_Martinez_Report.pdf) |
+| **[Assignment 2](./assignment_2/)** | Dense Optimisations & Sparse Matrices | C Baseline vs Cache Blocking, Loop Reordering ($i\text{-}k\text{-}j$), and Sparse CSR | In Progress | Planned |
+| **[Assignment 3](./assignment_3/)** | Shared-Memory Parallelism | Multi-threading / OpenMP / Java concurrency | Planned | — |
+| **[Assignment 4](./assignment_4/)** | Distributed Matrix Scaling | Distributed computing framework / cluster scaling | Planned | — |
 
 ---
 
-## 2. Directory Structure
+## 2. Repository Architecture & Modularity
+
+The repository is structured modularly. Each assignment subfolder is **fully self-contained**, including its own source code, correctness tests, benchmarking harness, visualization scripts, Typst manuscript, and dedicated `Makefile`:
 
 ```text
 .
-├── Makefile                          # Top-level orchestrator for build, test, benchmark, plots, report, package
-├── README.md                         # This file (reproducibility documentation and instructions)
-├── requirements.txt                  # Python dependencies for tests, benchmarks, and plotting
-├── Assignment01_Martinez_Report.pdf  # Final compiled PDF research paper (official submission document)
+├── Makefile                          # Top-level orchestrator for multi-assignment builds & tests
+├── README.md                         # Repository documentation and global index
+├── .gitignore                        # Global VCS ignore rules (Python, C, Java, OS files)
 │
-├── common/                           # Cross-language deterministic PRNG (SplitMix64)
-│   ├── prng.h                        # C SplitMix64 generator and matrix filler
-│   ├── PRNG.java                     # Java SplitMix64 generator and matrix filler
-│   └── prng.py                       # Python SplitMix64 generator and matrix filler
+├── docs/                             # Official course specifications and guides
+│   └── BD_Individual_Assignments_2026_2027.pdf
 │
-├── src/                              # Canonical triple-loop implementations (O(n^3))
-│   ├── c/
-│   │   ├── matmul.c                  # C implementation (1D contiguous array, monotonic clock, Peak RSS)
-│   │   └── Makefile                  # C build rules for -O2 (optimized) and -O0 (unoptimized)
-│   ├── java/
-│   │   ├── MatrixMultiplication.java # Java implementation (double[][], nanoTime, managed heap tracking)
-│   │   └── Makefile                  # Java build rules (javac into build/)
-│   └── python/
-│       └── matmul.py                 # Python implementation (list[list[float]], perf_counter, tracemalloc)
+├── assignment_1/                     # Assignment 1: Language comparison (C, Java, Python)
+│   ├── Makefile                      # Self-contained build & execution orchestrator
+│   ├── README.md                     # Assignment 1 reproducibility guide
+│   ├── requirements.txt              # Python analysis & testing dependencies
+│   ├── Assignment01_Martinez_Report.pdf # Final compiled research report
+│   ├── common/                       # SplitMix64 deterministic PRNG (C, Java, Python)
+│   ├── src/                          # Implementations (c/, java/, python/)
+│   ├── tests/                        # Correctness validation suite (Identity, Zero, BLAS)
+│   ├── benchmarks/                   # Repetition runner & raw CSV measurement tables
+│   ├── analysis/                     # Matplotlib generation scripts & metric summarizer
+│   └── report/                       # Typst manuscript and autogenerated figures/tables
 │
-├── tests/                            # Correctness and validation suites
-│   ├── run_correctness_tests.py      # Automated validation: Zero matrix, Identity matrix, and NumPy BLAS
-│   └── correctness_summary.json      # Machine-readable numerical error log
-│
-├── benchmarks/                       # Empirical benchmarking harness
-│   ├── run_benchmarks.py             # Orchestrates runs across n in [32, 2048] with warm-ups & 60s timeout
-│   └── results/
-│       ├── raw_benchmark_results.csv # All individual timed repetitions
-│       ├── summary_benchmark_results.csv # Aggregated medians, IQR, min/max, mean/std, memory metrics
-│       └── scaling_exponent_fits.csv # Linear regression parameters for T(n) = c * n^alpha
-│
-├── analysis/                         # Post-processing and visualization
-│   └── generate_plots_and_tables.py  # Generates publication figures (PDF/PNG) and Typst tables
-│
-└── report/                           # Typesetting and paper manuscript
-    ├── report.typ                    # Typst source document (IEEE 2-column format)
-    ├── references.bib                # BibTeX bibliography
-    ├── tables_autogen.typ            # Autogenerated measurement tables (from analysis script)
-    └── figures/                      # High-resolution benchmark plots
-        ├── fig1_runtime_comparison.pdf / .png
-        ├── fig2_throughput_speedup.pdf / .png
-        └── fig3_memory_scaling.pdf / .png
+└── assignment_2/                     # Assignment 2: Dense optimizations & Sparse CSR
+    ├── Makefile                      # Self-contained build & execution orchestrator
+    ├── README.md                     # Assignment 2 research plan and protocol
+    ├── requirements.txt              # Analysis dependencies
+    ├── common/                       # Matrix generation & PRNG utilities
+    ├── src/                          # Optimized dense (tiling/blocking, ikj) & sparse (CSR)
+    ├── tests/                        # Correctness tests against reference BLAS
+    ├── benchmarks/                   # Empirical benchmarking suite across sizes & sparsities
+    ├── analysis/                     # Scaling plots, speedup curves & memory profiling
+    └── report/                       # IEEE 2-column Typst manuscript
 ```
 
 ---
 
-## 3. Environment & Hardware Specifications
+## 3. Common Experimental Protocol
 
-All reported experiments were executed under controlled single-user conditions:
+All assignments adhere to the course's strict empirical methodology:
+
+1. **Controlled Inputs & Shared PRNG:** Logical input matrices are generated deterministically using the SplitMix64 64-bit linear PRNG with recorded seeds, ensuring bit-for-bit identical inputs across languages and algorithms.
+2. **Standardized Numerical Precision:** All floating-point operations use 64-bit IEEE 754 double-precision floats (`double` in C and Java, standard `float` in Python).
+3. **Strict Timing Boundaries:** Kernel execution time is isolated from data generation, I/O, and disk operations using monotonic clocks (`clock_gettime(CLOCK_MONOTONIC)` in C, `System.nanoTime()` in Java, `time.perf_counter()` in Python).
+4. **Reproducibility & Statistical Rigour:** Each configuration undergoes warmup iterations followed by at least 5 measured repetitions. Raw results are archived as CSV, with central tendencies reported as **Medians** and dispersion measured via the **Interquartile Range (IQR)**.
+5. **Memory Profiling:** Memory usage is explicitly documented by metric: Peak Resident Set Size (Peak RSS) via `getrusage` in C/Python, and managed heap delta via `Runtime.getRuntime()` in Java.
+
+---
+
+## 4. Hardware & Benchmark Environment
+
+All experiments are conducted under controlled single-user conditions on the following hardware platform:
 
 - **Host Processor:** Apple M2 (ARMv8.5-A architecture)
-  - 4 Performance cores (`Avalanche`, 3.50 GHz, 64 KB L1D / 128 KB L1I per core, 16 MB shared L2 cache)
-  - 4 Efficiency cores (`Blizzard`, 2.42 GHz, 32 KB L1D / 64 KB L1I per core, 4 MB shared L2 cache)
-  - 8 physical cores, 8 logical processors (1 thread per core, no SMT)
-- **Memory:** 8.0 GB Unified Memory (LPDDR5-6400, 100 GB/s bandwidth)
-- **Operating System:** macOS Darwin 25.6.0 (Kernel 26.6.2, Build 25G83, arm64)
+  - 4 Performance cores (`Avalanche`, up to 3.50 GHz, 64 KB L1D / 128 KB L1I, 16 MB shared L2 cache)
+  - 4 Efficiency cores (`Blizzard`, up to 2.42 GHz, 32 KB L1D / 64 KB L1I, 4 MB shared L2 cache)
+  - 8 physical cores, 8 logical processors (1 thread per core, SMT disabled)
+- **Memory:** 8.0 GB Unified Memory (LPDDR5-6400, 100 GB/s memory bandwidth)
+- **Operating System:** macOS Darwin 25.6.0 (Kernel 26.6.2, arm64)
 - **Compilers & Runtimes:**
-  - **C:** Apple Clang 21.0.0 (`clang-2100.1.1.101`). Evaluated flags: `-O2 -Wall -Wextra -std=c99` and `-O0`.
-  - **Java:** OpenJDK 22.0.2 (64-Bit Server VM, mixed mode, tiered compilation enabled).
-  - **Python:** CPython 3.14.7 (macOS arm64 build).
-  - **Typesetting:** Typst v0.15.1 (compatible with v0.11.0+).
+  - C: Apple Clang 21.0.0 (`clang-2100.1.1.101`)
+  - Java: OpenJDK 22.0.2 (64-Bit Server VM, mixed mode, tiered compilation)
+  - Python: CPython 3.14.7
+  - Typesetting: Typst v0.15.1+
 
 ---
 
-## 4. Software Dependencies & Installation
+## 5. Quick Start & Execution
 
-Ensure you have `python3`, `clang`, `javac` (JDK 22+), and `typst` installed.
-
-Install the Python libraries:
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 5. Build & Execution Workflow
-
-The project is fully orchestrated via the top-level `Makefile`.
-
-### Step 1: Compile all binaries
-```bash
-make build
-```
-This compiles:
-- `src/c/matmul_opt` (C compiled with `-O2`)
-- `src/c/matmul_o0` (C compiled with `-O0`)
-- `src/java/build/src/java/MatrixMultiplication.class`
-
-### Step 2: Run correctness tests
+To run tests across implemented assignments:
 ```bash
 make test
 ```
-Executes `tests/run_correctness_tests.py`:
-1. **Zero Matrix Test:** Verifies $A \times 0 = 0$ (exact zero accumulation).
-2. **Identity Matrix Test:** Verifies $A \times I = A$ (relative error $< 10^{-13}$).
-3. **Reference Comparison:** Checks cross-language outputs against NumPy BLAS ground truth across $n \in [2, 128]$ with relative tolerance $\le 10^{-12}$.
 
-### Step 3: Run the full benchmark suite
+To reproduce an individual assignment (e.g., Assignment 1):
 ```bash
-make benchmark
-```
-Executes `benchmarks/run_benchmarks.py`:
-- Sweeps matrix sizes $n \in [32, 64, 128, 256, 384, 512, 768, 1024, 1536, 2048]$.
-- Enforces dedicated warm-ups ($W=3$ for $n \le 256$, $W=2$ for $n \le 512$, $W=1$ for $n \ge 768$).
-- Collects 5 measured repetitions per configuration ($R=5$).
-- Enforces a strict 60.0s execution timeout per repetition (Python times out at $n=1536$, recorded as `TIMEOUT`).
-- Saves raw and summary datasets in `benchmarks/results/`.
-
-### Step 4: Generate plots and summary tables
-```bash
-make plots
-```
-Executes `analysis/generate_plots_and_tables.py`:
-- Generates `fig1_runtime_comparison.pdf` / `.png` (linear and log-log scaling).
-- Generates `fig2_throughput_speedup.pdf` / `.png` (GFLOPS and slowdown vs C `-O2`).
-- Generates `fig3_memory_scaling.pdf` / `.png` (Peak RSS and payload scaling).
-- Fits empirical scaling exponents ($T(n) = c \cdot n^\alpha$) and saves `scaling_exponent_fits.csv`.
-- Autogenerates Typst tables in `report/tables_autogen.typ`.
-
-### Step 5: Compile the PDF research report
-```bash
-make report
-```
-Compiles `report/report.typ` into `Assignment01_Martinez_Report.pdf` using Typst.
-
-### Step 6: Create the submission zip package
-```bash
-make package
-```
-Generates `Assignment01_Martinez_Materials.zip`, cleanly excluding compiled binaries, `.DS_Store`, and cache directories.
-
-### Run everything end-to-end
-```bash
+cd assignment_1
 make all
 ```
-
----
-
-## 6. Experimental Protocol Highlights
-
-- **Timer Boundary:** Only the arithmetic triple-loop is timed. Input generation, memory allocation, output clearing, and I/O are performed outside the timed region.
-- **Clock Implementations:**
-  - C: `clock_gettime(CLOCK_MONOTONIC)`
-  - Java: `System.nanoTime()`
-  - Python: `time.perf_counter()`
-- **Dead-Code Elimination:** A full matrix checksum $S = \sum_{i,j} C_{ij}$ is computed and consumed after stopping the timer.
-- **Memory Metrics:**
-  - C: Peak Resident Set Size (RSS) via `getrusage(RUSAGE_SELF)`.
-  - Python: Peak RSS via `getrusage(RUSAGE_SELF)` and managed heap via `tracemalloc`.
-  - Java: JVM Managed Heap via `Runtime.getRuntime().totalMemory() - freeMemory()`.
-  - Baseline: Theoretical raw matrix data payload ($24 n^2$ bytes for 3 matrices of 64-bit doubles).
-
----
-
-## 7. Generative AI Disclosure
- 
-In compliance with the course generative AI policy, AI assistance tools (Anthropic Claude and Google Gemini via the Antigravity assistant) were consulted for manuscript language editing, script boilerplate structuring, plotting layout formatting, and code review. All core algorithm implementations, experimental protocols, empirical measurements, and architectural conclusions were designed, executed, and defended by the author.
