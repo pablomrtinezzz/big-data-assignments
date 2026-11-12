@@ -1,0 +1,1058 @@
+{
+  "assignment": 3,
+  "title": "Parallel Matrix Multiplication and Optional Vectorisation",
+  "timestamp": "2026-11-12 17:57:40",
+  "elapsed_seconds": 0.9081,
+  "overall_status": "ALL_TESTS_PASSED",
+  "tolerance": 1e-12,
+  "total_tests_passed": 119,
+  "analytical_tests": [
+    {
+      "category": "analytical",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ikj",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ikj",
+      "threads": 2,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ikj",
+      "threads": 8,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_simd",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_simd",
+      "threads": 2,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_simd",
+      "threads": 8,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ijk",
+      "threads": 1,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ijk",
+      "threads": 2,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    },
+    {
+      "category": "analytical",
+      "method": "omp_ijk",
+      "threads": 8,
+      "n": 64,
+      "status": "PASSED",
+      "zero_checksum": 0.0,
+      "identity_rel_err": 2.1895466428041653e-14
+    }
+  ],
+  "numpy_blas_tests": [
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 16,
+      "seed": 42,
+      "rel_err": 1.8258017109991826e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 16,
+      "seed": 101,
+      "rel_err": 4.87155018650186e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 16,
+      "seed": 777,
+      "rel_err": 3.4804320408579404e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 32,
+      "seed": 42,
+      "rel_err": 3.5629342416754275e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 32,
+      "seed": 101,
+      "rel_err": 3.1037855971419237e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 32,
+      "seed": 777,
+      "rel_err": 5.065715349050743e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 64,
+      "seed": 42,
+      "rel_err": 6.673038615404648e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 64,
+      "seed": 101,
+      "rel_err": 2.645336343007505e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 64,
+      "seed": 777,
+      "rel_err": 2.1977182637798986e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 128,
+      "seed": 42,
+      "rel_err": 8.909548528336264e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 128,
+      "seed": 101,
+      "rel_err": 3.558357082594323e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 128,
+      "seed": 777,
+      "rel_err": 6.659688156936378e-16,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 256,
+      "seed": 42,
+      "rel_err": 1.5535142642945476e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 256,
+      "seed": 101,
+      "rel_err": 5.580167057950923e-15,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ikj",
+      "threads": 1,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_simd",
+      "threads": 1,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ikj",
+      "threads": 4,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_simd",
+      "threads": 4,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "seq_ijk",
+      "threads": 1,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    },
+    {
+      "category": "numpy_blas_comparison",
+      "method": "omp_ijk",
+      "threads": 4,
+      "n": 256,
+      "seed": 777,
+      "rel_err": 1.0685371306254752e-14,
+      "status": "PASSED"
+    }
+  ],
+  "concurrency_tests": [
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 1,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 2,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 4,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 6,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 8,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 12,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_ikj",
+      "threads": 16,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 1,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 2,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 4,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 6,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 8,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 12,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "category": "concurrency_consistency",
+      "method": "omp_simd",
+      "threads": 16,
+      "rel_diff_vs_seq": 0.0,
+      "status": "PASSED"
+    }
+  ]
+}

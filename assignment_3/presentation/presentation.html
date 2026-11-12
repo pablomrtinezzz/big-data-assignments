@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 3 Presentation | Pablo Martínez Suárez</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #151f32;
+      --border: #22314e;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --rose: #f87171;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    header {
+      height: 52px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+    }
+
+    .title-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .doc-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timer-display {
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #1e293b;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #334155;
+      border-color: var(--blue);
+    }
+
+    .btn.active {
+      background: var(--blue);
+      color: #0b0f19;
+      border-color: var(--blue);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px;
+      background: radial-gradient(circle at center, #111827 0%, #0b0f19 100%);
+    }
+
+    .slide-wrapper {
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .slide-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+    }
+
+    .slide-img.active {
+      display: block;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+
+    .nav-arrow:hover {
+      background: var(--blue);
+      color: #0b0f19;
+      border-color: var(--blue);
+    }
+
+    .nav-arrow.left { left: 30px; }
+    .nav-arrow.right { right: 30px; }
+
+    footer {
+      height: 44px;
+      background: #0f172a;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: var(--blue);
+      transform: scale(1.25);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-box">
+      <span class="badge">ASSIGNMENT 3</span>
+      <span class="doc-title">Shared-Memory Parallelism & Vectorisation on Asymmetric Silicon</span>
+    </div>
+    <div class="controls">
+      <div class="timer-display" id="timer">00:00</div>
+      <button class="btn" id="timerBtn" onclick="toggleTimer()">Start Timer</button>
+      <button class="btn" onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="nav-arrow left" onclick="prevSlide()">&#10094;</div>
+    <div class="slide-wrapper">
+      <img src="slides/slide_1.png" alt="Slide 1" class="slide-img active" id="slide-1">
+      <img src="slides/slide_2.png" alt="Slide 2" class="slide-img" id="slide-2">
+      <img src="slides/slide_3.png" alt="Slide 3" class="slide-img" id="slide-3">
+      <img src="slides/slide_4.png" alt="Slide 4" class="slide-img" id="slide-4">
+    </div>
+    <div class="nav-arrow right" onclick="nextSlide()">&#10095;</div>
+  </main>
+
+  <footer>
+    <div>Pablo Martínez Suárez · Big Data (2026–2027) · ULPGC</div>
+    <div class="slide-dots">
+      <div class="dot active" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+      <div class="dot" onclick="goToSlide(4)"></div>
+    </div>
+    <div id="counter">Slide 1 / 4</div>
+  </footer>
+
+  <script>
+    let current = 1;
+    const total = 4;
+    let timerInterval = null;
+    let seconds = 0;
+
+    function updateView() {
+      for (let i = 1; i <= total; i++) {
+        document.getElementById(`slide-${i}`).classList.toggle('active', i === current);
+        document.querySelectorAll('.dot')[i-1].classList.toggle('active', i === current);
+      }
+      document.getElementById('counter').innerText = `Slide ${current} / ${total}`;
+    }
+
+    function nextSlide() {
+      if (current < total) { current++; updateView(); }
+    }
+
+    function prevSlide() {
+      if (current > 1) { current--; updateView(); }
+    }
+
+    function goToSlide(n) {
+      current = n;
+      updateView();
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timerBtn');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.innerText = "Start Timer";
+        btn.classList.remove('active');
+      } else {
+        btn.innerText = "Pause Timer";
+        btn.classList.add('active');
+        timerInterval = setInterval(() => {
+          seconds++;
+          const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+          const secs = String(seconds % 60).padStart(2, '0');
+          document.getElementById('timer').innerText = `${mins}:${secs}`;
+        }, 1000);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') nextSlide();
+      else if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+      else if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+    });
+  </script>
+</body>
+</html>

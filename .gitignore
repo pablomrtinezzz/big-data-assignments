@@ -41,6 +41,7 @@ matmul_o0
 matmul_baseline
 matmul_transposed
 matmul_blocked
+matmul_parallel
 
 # Java build artifacts
 *.class
