@@ -88,11 +88,11 @@ def plot_strong_scaling_and_speedup(parallel_df: pd.DataFrame):
     ax2.legend(loc="upper left", framealpha=0.9)
 
     plt.tight_layout()
-    for dest in [REPORT_FIG_DIR, PRES_FIG_DIR]:
-        fig.savefig(os.path.join(dest, "fig1_strong_scaling_and_speedup.pdf"))
-        fig.savefig(os.path.join(dest, "fig1_strong_scaling_and_speedup.png"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig1_strong_scaling_and_speedup.pdf"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig1_strong_scaling_and_speedup.png"))
+    fig.savefig(os.path.join(PRES_FIG_DIR, "fig1_strong_scaling_and_speedup.png"))
     plt.close()
-    print("  [GENERATED] fig1_strong_scaling_and_speedup (.pdf / .png)")
+    print("  [GENERATED] fig1_strong_scaling_and_speedup")
 
 def plot_efficiency_and_regimes(parallel_df: pd.DataFrame):
     fig, ax = plt.subplots(figsize=(6.8, 4.2))
@@ -126,11 +126,11 @@ def plot_efficiency_and_regimes(parallel_df: pd.DataFrame):
     ax.legend(loc="upper right", framealpha=0.9, fontsize=8)
 
     plt.tight_layout()
-    for dest in [REPORT_FIG_DIR, PRES_FIG_DIR]:
-        fig.savefig(os.path.join(dest, "fig2_efficiency_and_oversubscription.pdf"))
-        fig.savefig(os.path.join(dest, "fig2_efficiency_and_oversubscription.png"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig2_efficiency_and_oversubscription.pdf"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig2_efficiency_and_oversubscription.png"))
+    fig.savefig(os.path.join(PRES_FIG_DIR, "fig2_efficiency_and_oversubscription.png"))
     plt.close()
-    print("  [GENERATED] fig2_efficiency_and_oversubscription (.pdf / .png)")
+    print("  [GENERATED] fig2_efficiency_and_oversubscription")
 
 def plot_scheduling_heterogeneity(parallel_df: pd.DataFrame):
     fig, ax = plt.subplots(figsize=(6.8, 4.0))
@@ -168,11 +168,11 @@ def plot_scheduling_heterogeneity(parallel_df: pd.DataFrame):
     ax.legend(loc="upper left", framealpha=0.9)
 
     plt.tight_layout()
-    for dest in [REPORT_FIG_DIR, PRES_FIG_DIR]:
-        fig.savefig(os.path.join(dest, "fig3_scheduling_heterogeneity.pdf"))
-        fig.savefig(os.path.join(dest, "fig3_scheduling_heterogeneity.png"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig3_scheduling_heterogeneity.pdf"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig3_scheduling_heterogeneity.png"))
+    fig.savefig(os.path.join(PRES_FIG_DIR, "fig3_scheduling_heterogeneity.png"))
     plt.close()
-    print("  [GENERATED] fig3_scheduling_heterogeneity (.pdf / .png)")
+    print("  [GENERATED] fig3_scheduling_heterogeneity")
 
 def plot_simd_vectorisation_impact(vector_df: pd.DataFrame):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.2, 3.8))
@@ -249,11 +249,11 @@ def plot_simd_vectorisation_impact(vector_df: pd.DataFrame):
     ax2.legend(loc="lower right", fontsize=8)
 
     plt.tight_layout()
-    for dest in [REPORT_FIG_DIR, PRES_FIG_DIR]:
-        fig.savefig(os.path.join(dest, "fig4_simd_vectorisation_impact.pdf"))
-        fig.savefig(os.path.join(dest, "fig4_simd_vectorisation_impact.png"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig4_simd_vectorisation_impact.pdf"))
+    fig.savefig(os.path.join(REPORT_FIG_DIR, "fig4_simd_vectorisation_impact.png"))
+    fig.savefig(os.path.join(PRES_FIG_DIR, "fig4_simd_vectorisation_impact.png"))
     plt.close()
-    print("  [GENERATED] fig4_simd_vectorisation_impact (.pdf / .png)")
+    print("  [GENERATED] fig4_simd_vectorisation_impact")
 
 def generate_typst_tables(parallel_df: pd.DataFrame, vector_df: pd.DataFrame):
     out_path = os.path.join(REPORT_DIR, "tables_autogen.typ")

@@ -30,9 +30,6 @@ presentation: plots
 		$(TYPST) compile presentation/presentation.typ presentation/Assignment03_Presentation.pdf; \
 		$(TYPST) compile --format png --ppi 200 presentation/presentation.typ presentation/slides/slide_{p}.png; \
 	fi
-	@if [ -f presentation/guia_conocimiento_presentacion.typ ]; then \
-		$(TYPST) compile presentation/guia_conocimiento_presentacion.typ presentation/GUIA_PRESENTACION_ES.pdf; \
-	fi
 
 package: report presentation
 	rm -f Assignment03_Martinez_Materials.zip
