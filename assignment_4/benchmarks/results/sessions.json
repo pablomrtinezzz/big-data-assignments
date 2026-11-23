@@ -1,0 +1,62 @@
+[
+  {
+    "config": "1x1",
+    "workers": 1,
+    "cores": 1,
+    "executor_mem": "640m",
+    "startup_s": 4.796305834082887,
+    "executors_registered": 1,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:19:17"
+  },
+  {
+    "config": "2x1",
+    "workers": 2,
+    "cores": 1,
+    "executor_mem": "640m",
+    "startup_s": 2.3673100830055773,
+    "executors_registered": 2,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:22:05"
+  },
+  {
+    "config": "4x1",
+    "workers": 4,
+    "cores": 1,
+    "executor_mem": "640m",
+    "startup_s": 6.884893666952848,
+    "executors_registered": 4,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:24:35"
+  },
+  {
+    "config": "8x1",
+    "workers": 8,
+    "cores": 1,
+    "executor_mem": "640m",
+    "startup_s": 5.893848333042115,
+    "executors_registered": 8,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:34:25"
+  },
+  {
+    "config": "1x4",
+    "workers": 1,
+    "cores": 4,
+    "executor_mem": "1g",
+    "startup_s": 2.8269449159270152,
+    "executors_registered": 1,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:45:08"
+  },
+  {
+    "config": "2x2",
+    "workers": 2,
+    "cores": 2,
+    "executor_mem": "1g",
+    "startup_s": 2.0671704579144716,
+    "executors_registered": 2,
+    "spark": "4.2.0",
+    "timestamp": "2026-11-23T18:45:53"
+  }
+]

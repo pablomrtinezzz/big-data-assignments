@@ -2,7 +2,7 @@
 # Top-Level Orchestration Makefile for Big Data Individual Assignments
 # ==============================================================================
 
-.PHONY: all help assignment-1 assignment-2 assignment-3 test clean
+.PHONY: all help assignment-1 assignment-2 assignment-3 assignment-4 test clean
 
 help:
 	@echo "Big Data Individual Assignments Suite (2026-2027)"
@@ -10,6 +10,7 @@ help:
 	@echo "  make assignment-1  - Build, test, benchmark, and compile Assignment 1 report"
 	@echo "  make assignment-2  - Build, test, benchmark, and compile Assignment 2 report"
 	@echo "  make assignment-3  - Build, test, benchmark, and compile Assignment 3 report"
+	@echo "  make assignment-4  - Build, test, and compile Assignment 4 report (Spark)"
 	@echo "  make test          - Run correctness test suites for all implemented assignments"
 	@echo "  make clean         - Clean temporary build and cache artifacts across all assignments"
 
@@ -22,14 +23,19 @@ assignment-2:
 assignment-3:
 	$(MAKE) -C assignment_3 all
 
+assignment-4:
+	$(MAKE) -C assignment_4 all
+
 test:
 	$(MAKE) -C assignment_1 test
 	@if [ -f assignment_2/Makefile ]; then $(MAKE) -C assignment_2 test; fi
 	@if [ -f assignment_3/Makefile ]; then $(MAKE) -C assignment_3 test; fi
+	@if [ -f assignment_4/Makefile ]; then $(MAKE) -C assignment_4 test; fi
 
 clean:
 	$(MAKE) -C assignment_1 clean
 	@if [ -f assignment_2/Makefile ]; then $(MAKE) -C assignment_2 clean; fi
 	@if [ -f assignment_3/Makefile ]; then $(MAKE) -C assignment_3 clean; fi
+	@if [ -f assignment_4/Makefile ]; then $(MAKE) -C assignment_4 clean; fi
 	find . -name ".DS_Store" -delete 2>/dev/null || true
 	find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true

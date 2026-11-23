@@ -1,0 +1,257 @@
+{
+  "timestamp": "2026-11-23T18:50:39",
+  "passed": 55,
+  "total": 55,
+  "tolerance": "|C-R| <= 1e-12*n + 1e-12*|R|",
+  "results": [
+    {
+      "test": "prng+kernel checksum vs A3 C n=16",
+      "passed": true,
+      "a3": 1033.6289504001,
+      "a4": 1033.6289504001188
+    },
+    {
+      "test": "prng+kernel checksum vs A3 C n=128",
+      "passed": true,
+      "a3": 522654.1904191129,
+      "a4": 522654.1904191134
+    },
+    {
+      "test": "kernel rect 1x1x1",
+      "passed": true
+    },
+    {
+      "test": "kernel rect 3x5x7",
+      "passed": true
+    },
+    {
+      "test": "kernel rect 64x17x33",
+      "passed": true
+    },
+    {
+      "test": "kernel rect 128x128x128",
+      "passed": true
+    },
+    {
+      "test": "cluster has 2 executors",
+      "passed": true,
+      "startup_s": 5.031273875036277
+    },
+    {
+      "test": "bcast 2x2 hand-computed",
+      "passed": true
+    },
+    {
+      "test": "bcast 3x3 hand-computed",
+      "passed": true
+    },
+    {
+      "test": "bcast A*I=A n=8",
+      "passed": true
+    },
+    {
+      "test": "bcast A*0=0 n=8",
+      "passed": true
+    },
+    {
+      "test": "bcast A*I=A n=61",
+      "passed": true
+    },
+    {
+      "test": "bcast A*0=0 n=61",
+      "passed": true
+    },
+    {
+      "test": "block2d 2x2 hand-computed",
+      "passed": true
+    },
+    {
+      "test": "block2d 3x3 hand-computed",
+      "passed": true
+    },
+    {
+      "test": "block2d A*I=A n=8",
+      "passed": true
+    },
+    {
+      "test": "block2d A*0=0 n=8",
+      "passed": true
+    },
+    {
+      "test": "block2d A*I=A n=61",
+      "passed": true
+    },
+    {
+      "test": "block2d A*0=0 n=61",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=1",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=1",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=1",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=1",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=1",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=1",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=5",
+      "passed": true,
+      "max_abs_err": 1.1102230246251565e-16
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=5",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=5",
+      "passed": true,
+      "max_abs_err": 1.1102230246251565e-16
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=5",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=5",
+      "passed": true,
+      "max_abs_err": 2.220446049250313e-16
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=5",
+      "passed": true,
+      "max_abs_err": 2.220446049250313e-16
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=37",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=37",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=37",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=37",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=37",
+      "passed": true,
+      "max_abs_err": 7.105427357601002e-15
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=37",
+      "passed": true,
+      "max_abs_err": 7.105427357601002e-15
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=100",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=100",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=100",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=100",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=100",
+      "passed": true,
+      "max_abs_err": 3.197442310920451e-14
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=100",
+      "passed": true,
+      "max_abs_err": 3.197442310920451e-14
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=256",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=256",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=256",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=256",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=256",
+      "passed": true,
+      "max_abs_err": 1.4210854715202004e-13
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=256",
+      "passed": true,
+      "max_abs_err": 1.4210854715202004e-13
+    },
+    {
+      "test": "bcast(p=16) vs NumPy n=513",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=16) bit-identical to sequential kernel n=513",
+      "passed": true
+    },
+    {
+      "test": "bcast(p=3) vs NumPy n=513",
+      "passed": true,
+      "max_abs_err": 0.0
+    },
+    {
+      "test": "bcast(p=3) bit-identical to sequential kernel n=513",
+      "passed": true
+    },
+    {
+      "test": "block2d(p=4) vs NumPy n=513",
+      "passed": true,
+      "max_abs_err": 3.410605131648481e-13
+    },
+    {
+      "test": "block2d(p=3) vs NumPy n=513",
+      "passed": true,
+      "max_abs_err": 3.694822225952521e-13
+    }
+  ]
+}

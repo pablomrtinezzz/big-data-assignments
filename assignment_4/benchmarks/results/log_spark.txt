@@ -1,0 +1,277 @@
+== cluster local-cluster[1,1,1024]: startup 4.80s, executors=1
+  strong   bcast   n=  512 1x1 rep=0 e2e=0.195s job=0.182s ok=True execRSS=378MiB
+  strong   bcast   n=  512 1x1 rep=1 e2e=0.192s job=0.180s ok=True execRSS=382MiB
+  strong   bcast   n=  512 1x1 rep=2 e2e=0.206s job=0.194s ok=True execRSS=386MiB
+  strong   bcast   n=  512 1x1 rep=3 e2e=0.203s job=0.186s ok=True execRSS=419MiB
+  strong   bcast   n=  512 1x1 rep=4 e2e=0.197s job=0.185s ok=True execRSS=437MiB
+  strong   block2d n=  512 1x1 rep=0 e2e=0.824s job=0.813s ok=True execRSS=576MiB
+  strong   block2d n=  512 1x1 rep=1 e2e=0.907s job=0.895s ok=True execRSS=585MiB
+  strong   block2d n=  512 1x1 rep=2 e2e=0.744s job=0.732s ok=True execRSS=495MiB
+  strong   block2d n=  512 1x1 rep=3 e2e=1.043s job=1.031s ok=True execRSS=514MiB
+  strong   block2d n=  512 1x1 rep=4 e2e=0.875s job=0.827s ok=True execRSS=480MiB
+  strong   bcast   n= 1024 1x1 rep=0 e2e=0.331s job=0.309s ok=True execRSS=510MiB
+  strong   bcast   n= 1024 1x1 rep=1 e2e=0.344s job=0.323s ok=True execRSS=507MiB
+  strong   bcast   n= 1024 1x1 rep=2 e2e=0.332s job=0.309s ok=True execRSS=494MiB
+  strong   bcast   n= 1024 1x1 rep=3 e2e=0.307s job=0.286s ok=True execRSS=499MiB
+  strong   bcast   n= 1024 1x1 rep=4 e2e=0.314s job=0.293s ok=True execRSS=502MiB
+  strong   block2d n= 1024 1x1 rep=0 e2e=1.017s job=0.996s ok=True execRSS=506MiB
+  strong   block2d n= 1024 1x1 rep=1 e2e=1.072s job=1.049s ok=True execRSS=482MiB
+  strong   block2d n= 1024 1x1 rep=2 e2e=1.129s job=1.107s ok=True execRSS=464MiB
+  strong   block2d n= 1024 1x1 rep=3 e2e=1.003s job=0.969s ok=True execRSS=457MiB
+  strong   block2d n= 1024 1x1 rep=4 e2e=0.959s job=0.924s ok=True execRSS=458MiB
+  strong   bcast   n= 2048 1x1 rep=0 e2e=1.791s job=1.708s ok=True execRSS=436MiB
+  strong   bcast   n= 2048 1x1 rep=1 e2e=1.851s job=1.728s ok=True execRSS=408MiB
+  strong   bcast   n= 2048 1x1 rep=2 e2e=1.839s job=1.725s ok=True execRSS=408MiB
+  strong   bcast   n= 2048 1x1 rep=3 e2e=1.905s job=1.793s ok=True execRSS=418MiB
+  strong   bcast   n= 2048 1x1 rep=4 e2e=2.036s job=1.910s ok=True execRSS=395MiB
+  strong   block2d n= 2048 1x1 rep=0 e2e=3.599s job=3.459s ok=True execRSS=460MiB
+  strong   block2d n= 2048 1x1 rep=1 e2e=3.380s job=3.267s ok=True execRSS=440MiB
+  strong   block2d n= 2048 1x1 rep=2 e2e=3.461s job=3.320s ok=True execRSS=439MiB
+  strong   block2d n= 2048 1x1 rep=3 e2e=3.068s job=2.969s ok=True execRSS=476MiB
+  strong   block2d n= 2048 1x1 rep=4 e2e=3.291s job=3.178s ok=True execRSS=475MiB
+  strong   bcast   n= 3072 1x1 rep=0 e2e=6.239s job=6.006s ok=True execRSS=675MiB
+  strong   bcast   n= 3072 1x1 rep=1 e2e=6.063s job=5.795s ok=True execRSS=709MiB
+  strong   bcast   n= 3072 1x1 rep=2 e2e=6.063s job=5.780s ok=True execRSS=731MiB
+  strong   bcast   n= 3072 1x1 rep=3 e2e=5.949s job=5.682s ok=True execRSS=706MiB
+  strong   bcast   n= 3072 1x1 rep=4 e2e=6.040s job=5.804s ok=True execRSS=665MiB
+  strong   block2d n= 3072 1x1 rep=0 e2e=9.233s job=8.997s ok=True execRSS=642MiB
+  strong   block2d n= 3072 1x1 rep=1 e2e=10.003s job=9.642s ok=True execRSS=652MiB
+  strong   block2d n= 3072 1x1 rep=2 e2e=8.771s job=8.471s ok=True execRSS=660MiB
+  strong   block2d n= 3072 1x1 rep=3 e2e=8.655s job=8.417s ok=True execRSS=667MiB
+  strong   block2d n= 3072 1x1 rep=4 e2e=8.923s job=8.668s ok=True execRSS=640MiB
+  weak     bcast   n= 1536 1x1 rep=0 e2e=0.936s job=0.864s ok=True execRSS=478MiB
+  weak     bcast   n= 1536 1x1 rep=1 e2e=0.830s job=0.784s ok=True execRSS=533MiB
+  weak     bcast   n= 1536 1x1 rep=2 e2e=0.779s job=0.745s ok=True execRSS=597MiB
+  weak     bcast   n= 1536 1x1 rep=3 e2e=0.766s job=0.728s ok=True execRSS=655MiB
+  weak     bcast   n= 1536 1x1 rep=4 e2e=0.830s job=0.793s ok=True execRSS=561MiB
+  weak     block2d n= 1536 1x1 rep=0 e2e=1.663s job=1.635s ok=True execRSS=572MiB
+  weak     block2d n= 1536 1x1 rep=1 e2e=1.817s job=1.790s ok=True execRSS=517MiB
+  weak     block2d n= 1536 1x1 rep=2 e2e=1.688s job=1.640s ok=True execRSS=533MiB
+  weak     block2d n= 1536 1x1 rep=3 e2e=1.846s job=1.803s ok=True execRSS=533MiB
+  weak     block2d n= 1536 1x1 rep=4 e2e=1.922s job=1.800s ok=True execRSS=544MiB
+== cluster local-cluster[2,1,1024]: startup 2.37s, executors=2
+  strong   bcast   n=  512 2x1 rep=0 e2e=0.154s job=0.142s ok=True execRSS=399MiB
+  strong   bcast   n=  512 2x1 rep=1 e2e=0.168s job=0.156s ok=True execRSS=399MiB
+  strong   bcast   n=  512 2x1 rep=2 e2e=0.168s job=0.153s ok=True execRSS=399MiB
+  strong   bcast   n=  512 2x1 rep=3 e2e=0.136s job=0.124s ok=True execRSS=382MiB
+  strong   bcast   n=  512 2x1 rep=4 e2e=0.149s job=0.137s ok=True execRSS=383MiB
+  strong   block2d n=  512 2x1 rep=0 e2e=0.691s job=0.678s ok=True execRSS=456MiB
+  strong   block2d n=  512 2x1 rep=1 e2e=0.607s job=0.596s ok=True execRSS=459MiB
+  strong   block2d n=  512 2x1 rep=2 e2e=0.673s job=0.658s ok=True execRSS=467MiB
+  strong   block2d n=  512 2x1 rep=3 e2e=0.579s job=0.568s ok=True execRSS=481MiB
+  strong   block2d n=  512 2x1 rep=4 e2e=0.561s job=0.549s ok=True execRSS=494MiB
+  strong   bcast   n= 1024 2x1 rep=0 e2e=0.292s job=0.272s ok=True execRSS=538MiB
+  strong   bcast   n= 1024 2x1 rep=1 e2e=0.291s job=0.271s ok=True execRSS=539MiB
+  strong   bcast   n= 1024 2x1 rep=2 e2e=0.272s job=0.253s ok=True execRSS=547MiB
+  strong   bcast   n= 1024 2x1 rep=3 e2e=0.247s job=0.228s ok=True execRSS=547MiB
+  strong   bcast   n= 1024 2x1 rep=4 e2e=0.270s job=0.250s ok=True execRSS=546MiB
+  strong   block2d n= 1024 2x1 rep=0 e2e=0.838s job=0.807s ok=True execRSS=564MiB
+  strong   block2d n= 1024 2x1 rep=1 e2e=0.772s job=0.751s ok=True execRSS=507MiB
+  strong   block2d n= 1024 2x1 rep=2 e2e=0.726s job=0.708s ok=True execRSS=475MiB
+  strong   block2d n= 1024 2x1 rep=3 e2e=0.696s job=0.675s ok=True execRSS=477MiB
+  strong   block2d n= 1024 2x1 rep=4 e2e=0.694s job=0.677s ok=True execRSS=479MiB
+  strong   bcast   n= 2048 2x1 rep=0 e2e=1.572s job=1.508s ok=True execRSS=503MiB
+  strong   bcast   n= 2048 2x1 rep=1 e2e=1.585s job=1.490s ok=True execRSS=438MiB
+  strong   bcast   n= 2048 2x1 rep=2 e2e=1.463s job=1.398s ok=True execRSS=438MiB
+  strong   bcast   n= 2048 2x1 rep=3 e2e=1.601s job=1.515s ok=True execRSS=432MiB
+  strong   bcast   n= 2048 2x1 rep=4 e2e=1.614s job=1.514s ok=True execRSS=407MiB
+  strong   block2d n= 2048 2x1 rep=0 e2e=2.194s job=2.096s ok=True execRSS=440MiB
+  strong   block2d n= 2048 2x1 rep=1 e2e=2.071s job=1.940s ok=True execRSS=436MiB
+  strong   block2d n= 2048 2x1 rep=2 e2e=2.136s job=2.004s ok=True execRSS=423MiB
+  strong   block2d n= 2048 2x1 rep=3 e2e=2.233s job=2.115s ok=True execRSS=416MiB
+  strong   block2d n= 2048 2x1 rep=4 e2e=2.445s job=2.313s ok=True execRSS=410MiB
+  strong   bcast   n= 3072 2x1 rep=0 e2e=5.182s job=4.907s ok=True execRSS=604MiB
+  strong   bcast   n= 3072 2x1 rep=1 e2e=5.397s job=4.954s ok=True execRSS=540MiB
+  strong   bcast   n= 3072 2x1 rep=2 e2e=5.566s job=5.252s ok=True execRSS=530MiB
+  strong   bcast   n= 3072 2x1 rep=3 e2e=5.287s job=5.068s ok=True execRSS=524MiB
+  strong   bcast   n= 3072 2x1 rep=4 e2e=5.577s job=5.309s ok=True execRSS=530MiB
+  strong   block2d n= 3072 2x1 rep=0 e2e=5.793s job=5.497s ok=True execRSS=665MiB
+  strong   block2d n= 3072 2x1 rep=1 e2e=5.791s job=5.533s ok=True execRSS=650MiB
+  strong   block2d n= 3072 2x1 rep=2 e2e=6.504s job=6.228s ok=True execRSS=647MiB
+  strong   block2d n= 3072 2x1 rep=3 e2e=6.207s job=5.876s ok=True execRSS=817MiB
+  strong   block2d n= 3072 2x1 rep=4 e2e=5.735s job=5.425s ok=True execRSS=674MiB
+  weak     bcast   n= 1920 2x1 rep=0 e2e=1.552s job=1.468s ok=True execRSS=433MiB
+  weak     bcast   n= 1920 2x1 rep=1 e2e=1.850s job=1.751s ok=True execRSS=357MiB
+  weak     bcast   n= 1920 2x1 rep=2 e2e=1.491s job=1.397s ok=True execRSS=482MiB
+  weak     bcast   n= 1920 2x1 rep=3 e2e=2.109s job=2.003s ok=True execRSS=464MiB
+  weak     bcast   n= 1920 2x1 rep=4 e2e=2.385s job=2.035s ok=True execRSS=399MiB
+  weak     block2d n= 1920 2x1 rep=0 e2e=2.350s job=2.154s ok=True execRSS=469MiB
+  weak     block2d n= 1920 2x1 rep=1 e2e=2.198s job=2.096s ok=True execRSS=461MiB
+  weak     block2d n= 1920 2x1 rep=2 e2e=2.504s job=2.257s ok=True execRSS=422MiB
+  weak     block2d n= 1920 2x1 rep=3 e2e=2.661s job=2.386s ok=True execRSS=456MiB
+  weak     block2d n= 1920 2x1 rep=4 e2e=3.573s job=3.381s ok=True execRSS=407MiB
+== cluster local-cluster[4,1,1024]: startup 6.88s, executors=4
+  strong   bcast   n=  512 4x1 rep=0 e2e=0.595s job=0.537s ok=True execRSS=195MiB
+  strong   bcast   n=  512 4x1 rep=1 e2e=0.418s job=0.362s ok=True execRSS=203MiB
+  strong   bcast   n=  512 4x1 rep=2 e2e=0.390s job=0.327s ok=True execRSS=218MiB
+  strong   bcast   n=  512 4x1 rep=3 e2e=0.482s job=0.403s ok=True execRSS=194MiB
+  strong   bcast   n=  512 4x1 rep=4 e2e=0.496s job=0.407s ok=True execRSS=207MiB
+  strong   block2d n=  512 4x1 rep=0 e2e=2.305s job=2.230s ok=True execRSS=285MiB
+  strong   block2d n=  512 4x1 rep=1 e2e=2.068s job=1.874s ok=True execRSS=271MiB
+  strong   block2d n=  512 4x1 rep=2 e2e=1.726s job=1.693s ok=True execRSS=307MiB
+  strong   block2d n=  512 4x1 rep=3 e2e=1.163s job=1.112s ok=True execRSS=309MiB
+  strong   block2d n=  512 4x1 rep=4 e2e=1.389s job=1.329s ok=True execRSS=291MiB
+  strong   bcast   n= 1024 4x1 rep=0 e2e=0.768s job=0.673s ok=True execRSS=277MiB
+  strong   bcast   n= 1024 4x1 rep=1 e2e=1.025s job=0.901s ok=True execRSS=277MiB
+  strong   bcast   n= 1024 4x1 rep=2 e2e=0.829s job=0.669s ok=True execRSS=254MiB
+  strong   bcast   n= 1024 4x1 rep=3 e2e=0.870s job=0.786s ok=True execRSS=267MiB
+  strong   bcast   n= 1024 4x1 rep=4 e2e=0.668s job=0.608s ok=True execRSS=270MiB
+  strong   block2d n= 1024 4x1 rep=0 e2e=3.950s job=3.863s ok=True execRSS=265MiB
+  strong   block2d n= 1024 4x1 rep=1 e2e=4.626s job=4.468s ok=True execRSS=244MiB
+  strong   block2d n= 1024 4x1 rep=2 e2e=3.915s job=3.470s ok=True execRSS=247MiB
+  strong   block2d n= 1024 4x1 rep=3 e2e=2.645s job=2.517s ok=True execRSS=274MiB
+  strong   block2d n= 1024 4x1 rep=4 e2e=1.855s job=1.784s ok=True execRSS=304MiB
+  strong   bcast   n= 2048 4x1 rep=0 e2e=2.797s job=2.533s ok=True execRSS=284MiB
+  strong   bcast   n= 2048 4x1 rep=1 e2e=2.378s job=2.170s ok=True execRSS=343MiB
+  strong   bcast   n= 2048 4x1 rep=2 e2e=2.437s job=2.319s ok=True execRSS=332MiB
+  strong   bcast   n= 2048 4x1 rep=3 e2e=2.470s job=2.258s ok=True execRSS=295MiB
+  strong   bcast   n= 2048 4x1 rep=4 e2e=2.360s job=2.209s ok=True execRSS=302MiB
+  strong   block2d n= 2048 4x1 rep=0 e2e=3.693s job=3.060s ok=True execRSS=352MiB
+  strong   block2d n= 2048 4x1 rep=1 e2e=2.915s job=2.520s ok=True execRSS=369MiB
+  strong   block2d n= 2048 4x1 rep=2 e2e=3.090s job=2.848s ok=True execRSS=345MiB
+  strong   block2d n= 2048 4x1 rep=3 e2e=3.437s job=3.185s ok=True execRSS=334MiB
+  strong   block2d n= 2048 4x1 rep=4 e2e=2.883s job=2.639s ok=True execRSS=357MiB
+  strong   bcast   n= 3072 4x1 rep=0 e2e=7.111s job=6.722s ok=True execRSS=399MiB
+  strong   bcast   n= 3072 4x1 rep=1 e2e=8.840s job=7.931s ok=True execRSS=398MiB
+  strong   bcast   n= 3072 4x1 rep=2 e2e=15.953s job=12.347s ok=True execRSS=335MiB
+  strong   bcast   n= 3072 4x1 rep=3 e2e=15.577s job=12.730s ok=True execRSS=319MiB
+  strong   bcast   n= 3072 4x1 rep=4 e2e=14.741s job=12.585s ok=True execRSS=326MiB
+  strong   block2d n= 3072 4x1 rep=0 e2e=20.435s job=17.767s ok=True execRSS=351MiB
+  strong   block2d n= 3072 4x1 rep=1 e2e=33.926s job=29.921s ok=True execRSS=315MiB
+  strong   block2d n= 3072 4x1 rep=2 e2e=40.925s job=37.228s ok=True execRSS=360MiB
+  strong   block2d n= 3072 4x1 rep=3 e2e=40.776s job=36.009s ok=True execRSS=396MiB
+  strong   block2d n= 3072 4x1 rep=4 e2e=33.844s job=30.210s ok=True execRSS=332MiB
+  weak     bcast   n= 2432 4x1 rep=0 e2e=15.704s job=13.548s ok=True execRSS=218MiB
+  weak     bcast   n= 2432 4x1 rep=1 e2e=10.078s job=8.368s ok=True execRSS=297MiB
+  weak     bcast   n= 2432 4x1 rep=2 e2e=9.908s job=8.842s ok=True execRSS=272MiB
+  weak     bcast   n= 2432 4x1 rep=3 e2e=11.068s job=9.070s ok=True execRSS=234MiB
+  weak     bcast   n= 2432 4x1 rep=4 e2e=13.428s job=12.338s ok=True execRSS=263MiB
+  weak     block2d n= 2432 4x1 rep=0 e2e=27.497s job=24.495s ok=True execRSS=294MiB
+  weak     block2d n= 2432 4x1 rep=1 e2e=22.916s job=20.786s ok=True execRSS=311MiB
+  weak     block2d n= 2432 4x1 rep=2 e2e=26.482s job=23.867s ok=True execRSS=275MiB
+  weak     block2d n= 2432 4x1 rep=3 e2e=23.867s job=20.372s ok=True execRSS=290MiB
+  weak     block2d n= 2432 4x1 rep=4 e2e=17.299s job=15.017s ok=True execRSS=387MiB
+== cluster local-cluster[8,1,1024]: startup 5.89s, executors=8
+  strong   bcast   n=  512 8x1 rep=0 e2e=0.919s job=0.804s ok=True execRSS=181MiB
+  strong   bcast   n=  512 8x1 rep=1 e2e=0.773s job=0.693s ok=True execRSS=201MiB
+  strong   bcast   n=  512 8x1 rep=2 e2e=0.493s job=0.436s ok=True execRSS=192MiB
+  strong   bcast   n=  512 8x1 rep=3 e2e=0.422s job=0.363s ok=True execRSS=174MiB
+  strong   bcast   n=  512 8x1 rep=4 e2e=0.533s job=0.472s ok=True execRSS=173MiB
+  strong   block2d n=  512 8x1 rep=0 e2e=2.578s job=2.414s ok=True execRSS=228MiB
+  strong   block2d n=  512 8x1 rep=1 e2e=2.570s job=2.510s ok=True execRSS=218MiB
+  strong   block2d n=  512 8x1 rep=2 e2e=2.381s job=2.319s ok=True execRSS=226MiB
+  strong   block2d n=  512 8x1 rep=3 e2e=2.075s job=2.021s ok=True execRSS=226MiB
+  strong   block2d n=  512 8x1 rep=4 e2e=2.153s job=2.037s ok=True execRSS=242MiB
+  strong   bcast   n= 1024 8x1 rep=0 e2e=1.364s job=1.129s ok=True execRSS=233MiB
+  strong   bcast   n= 1024 8x1 rep=1 e2e=1.257s job=1.145s ok=True execRSS=224MiB
+  strong   bcast   n= 1024 8x1 rep=2 e2e=1.187s job=1.052s ok=True execRSS=240MiB
+  strong   bcast   n= 1024 8x1 rep=3 e2e=1.271s job=1.058s ok=True execRSS=219MiB
+  strong   bcast   n= 1024 8x1 rep=4 e2e=1.145s job=1.014s ok=True execRSS=259MiB
+  strong   block2d n= 1024 8x1 rep=0 e2e=4.870s job=4.529s ok=True execRSS=216MiB
+  strong   block2d n= 1024 8x1 rep=1 e2e=3.545s job=3.278s ok=True execRSS=227MiB
+  strong   block2d n= 1024 8x1 rep=2 e2e=4.409s job=4.069s ok=True execRSS=227MiB
+  strong   block2d n= 1024 8x1 rep=3 e2e=4.370s job=4.042s ok=True execRSS=214MiB
+  strong   block2d n= 1024 8x1 rep=4 e2e=4.985s job=4.654s ok=True execRSS=207MiB
+  strong   bcast   n= 2048 8x1 rep=0 e2e=7.493s job=5.638s ok=True execRSS=251MiB
+  strong   bcast   n= 2048 8x1 rep=1 e2e=8.892s job=7.411s ok=True execRSS=282MiB
+  strong   bcast   n= 2048 8x1 rep=2 e2e=6.698s job=5.452s ok=True execRSS=255MiB
+  strong   bcast   n= 2048 8x1 rep=3 e2e=4.935s job=4.474s ok=True execRSS=267MiB
+  strong   bcast   n= 2048 8x1 rep=4 e2e=4.794s job=4.312s ok=True execRSS=246MiB
+  strong   block2d n= 2048 8x1 rep=0 e2e=8.424s job=7.521s ok=True execRSS=258MiB
+  strong   block2d n= 2048 8x1 rep=1 e2e=10.907s job=9.618s ok=True execRSS=278MiB
+  strong   block2d n= 2048 8x1 rep=2 e2e=17.725s job=15.908s ok=True execRSS=255MiB
+  strong   block2d n= 2048 8x1 rep=3 e2e=13.636s job=11.901s ok=True execRSS=254MiB
+  strong   block2d n= 2048 8x1 rep=4 e2e=11.425s job=9.666s ok=True execRSS=248MiB
+Python(70177) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70195) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   bcast   n= 3072 8x1 rep=0 e2e=30.445s job=29.034s ok=True execRSS=256MiB
+Python(70197) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70209) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   bcast   n= 3072 8x1 rep=1 e2e=26.875s job=24.052s ok=True execRSS=262MiB
+Python(70210) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70224) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   bcast   n= 3072 8x1 rep=2 e2e=27.781s job=24.529s ok=True execRSS=212MiB
+Python(70225) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70257) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   bcast   n= 3072 8x1 rep=3 e2e=29.335s job=26.175s ok=True execRSS=204MiB
+Python(70262) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70278) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   bcast   n= 3072 8x1 rep=4 e2e=26.325s job=22.508s ok=True execRSS=279MiB
+Python(70325) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70454) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   block2d n= 3072 8x1 rep=0 e2e=50.011s job=44.589s ok=True execRSS=348MiB
+Python(70457) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70510) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   block2d n= 3072 8x1 rep=1 e2e=39.225s job=34.135s ok=True execRSS=297MiB
+Python(70511) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70622) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   block2d n= 3072 8x1 rep=2 e2e=69.610s job=63.449s ok=True execRSS=329MiB
+Python(70623) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70671) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   block2d n= 3072 8x1 rep=3 e2e=34.894s job=30.610s ok=True execRSS=303MiB
+Python(70672) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70719) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  strong   block2d n= 3072 8x1 rep=4 e2e=36.473s job=34.012s ok=True execRSS=324MiB
+== cluster local-cluster[1,4,2048]: startup 2.83s, executors=1
+Python(70795) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70805) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 1x4 rep=0 e2e=2.687s job=2.044s ok=True execRSS=658MiB
+Python(70806) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70808) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 1x4 rep=1 e2e=2.219s job=1.848s ok=True execRSS=672MiB
+Python(70809) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70812) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 1x4 rep=2 e2e=2.493s job=1.941s ok=True execRSS=664MiB
+Python(70813) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70814) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 1x4 rep=3 e2e=2.175s job=1.843s ok=True execRSS=652MiB
+Python(70815) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70816) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 1x4 rep=4 e2e=1.855s job=1.635s ok=True execRSS=675MiB
+Python(70822) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70823) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 1x4 rep=0 e2e=3.044s job=2.830s ok=True execRSS=1021MiB
+Python(70824) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70830) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 1x4 rep=1 e2e=4.010s job=3.695s ok=True execRSS=974MiB
+Python(70831) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70838) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 1x4 rep=2 e2e=2.807s job=2.479s ok=True execRSS=951MiB
+Python(70839) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70840) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 1x4 rep=3 e2e=2.186s job=1.942s ok=True execRSS=968MiB
+Python(70841) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70842) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 1x4 rep=4 e2e=2.842s job=2.646s ok=True execRSS=995MiB
+== cluster local-cluster[2,2,2048]: startup 2.07s, executors=2
+Python(70867) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70877) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 2x2 rep=0 e2e=1.904s job=1.698s ok=True execRSS=445MiB
+Python(70878) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70879) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 2x2 rep=1 e2e=2.080s job=1.848s ok=True execRSS=447MiB
+Python(70880) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70881) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 2x2 rep=2 e2e=1.727s job=1.559s ok=True execRSS=452MiB
+Python(70882) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70883) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 2x2 rep=3 e2e=1.767s job=1.610s ok=True execRSS=460MiB
+Python(70884) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70890) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology bcast   n= 2048 2x2 rep=4 e2e=1.858s job=1.678s ok=True execRSS=452MiB
+Python(70914) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70915) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 2x2 rep=0 e2e=2.429s job=2.252s ok=True execRSS=650MiB
+Python(70916) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70917) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 2x2 rep=1 e2e=2.696s job=2.521s ok=True execRSS=620MiB
+Python(70918) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70927) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 2x2 rep=2 e2e=2.804s job=2.573s ok=True execRSS=608MiB
+Python(70928) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70934) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 2x2 rep=3 e2e=2.854s job=2.720s ok=True execRSS=597MiB
+Python(70935) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(70936) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  topology block2d n= 2048 2x2 rep=4 e2e=2.908s job=2.624s ok=True execRSS=615MiB
+done: 210 measured rows -> /Users/pablo/Desktop/Big Data/teoría/ASSIGNMENTS/assignment_4/benchmarks/results/raw_spark.csv

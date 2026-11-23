@@ -1,0 +1,372 @@
+== cluster local-cluster[1,1,1024]: startup 5.77s, executors=1
+  strong   bcast   n=  512 1x1 rep=0 e2e=0.261s job=0.246s ok=True execRSS=330MiB
+  strong   bcast   n=  512 1x1 rep=1 e2e=0.212s job=0.201s ok=True execRSS=330MiB
+  strong   bcast   n=  512 1x1 rep=2 e2e=0.207s job=0.196s ok=True execRSS=334MiB
+  strong   bcast   n=  512 1x1 rep=3 e2e=0.182s job=0.169s ok=True execRSS=363MiB
+  strong   bcast   n=  512 1x1 rep=4 e2e=0.162s job=0.154s ok=True execRSS=382MiB
+  strong   block2d n=  512 1x1 rep=0 e2e=0.826s job=0.814s ok=True execRSS=469MiB
+  strong   block2d n=  512 1x1 rep=1 e2e=0.708s job=0.699s ok=True execRSS=479MiB
+  strong   block2d n=  512 1x1 rep=2 e2e=0.684s job=0.673s ok=True execRSS=479MiB
+  strong   block2d n=  512 1x1 rep=3 e2e=0.761s job=0.754s ok=True execRSS=487MiB
+  strong   block2d n=  512 1x1 rep=4 e2e=0.703s job=0.692s ok=True execRSS=489MiB
+  strong   bcast   n= 1024 1x1 rep=0 e2e=0.402s job=0.366s ok=True execRSS=518MiB
+  strong   bcast   n= 1024 1x1 rep=1 e2e=0.367s job=0.319s ok=True execRSS=462MiB
+  strong   bcast   n= 1024 1x1 rep=2 e2e=0.352s job=0.315s ok=True execRSS=421MiB
+  strong   bcast   n= 1024 1x1 rep=3 e2e=0.314s job=0.294s ok=True execRSS=424MiB
+  strong   bcast   n= 1024 1x1 rep=4 e2e=0.331s job=0.313s ok=True execRSS=420MiB
+  strong   block2d n= 1024 1x1 rep=0 e2e=1.078s job=1.057s ok=True execRSS=455MiB
+  strong   block2d n= 1024 1x1 rep=1 e2e=1.083s job=1.064s ok=True execRSS=430MiB
+  strong   block2d n= 1024 1x1 rep=2 e2e=0.991s job=0.974s ok=True execRSS=437MiB
+  strong   block2d n= 1024 1x1 rep=3 e2e=0.969s job=0.953s ok=True execRSS=443MiB
+  strong   block2d n= 1024 1x1 rep=4 e2e=1.008s job=0.990s ok=True execRSS=438MiB
+  strong   bcast   n= 2048 1x1 rep=0 e2e=1.853s job=1.755s ok=True execRSS=397MiB
+  strong   bcast   n= 2048 1x1 rep=1 e2e=1.876s job=1.771s ok=True execRSS=381MiB
+  strong   bcast   n= 2048 1x1 rep=2 e2e=1.744s job=1.671s ok=True execRSS=389MiB
+  strong   bcast   n= 2048 1x1 rep=3 e2e=1.777s job=1.710s ok=True execRSS=390MiB
+  strong   bcast   n= 2048 1x1 rep=4 e2e=1.654s job=1.583s ok=True execRSS=392MiB
+  strong   block2d n= 2048 1x1 rep=0 e2e=3.578s job=3.464s ok=True execRSS=427MiB
+  strong   block2d n= 2048 1x1 rep=1 e2e=3.397s job=3.287s ok=True execRSS=417MiB
+  strong   block2d n= 2048 1x1 rep=2 e2e=3.409s job=3.255s ok=True execRSS=429MiB
+  strong   block2d n= 2048 1x1 rep=3 e2e=3.446s job=3.315s ok=True execRSS=448MiB
+  strong   block2d n= 2048 1x1 rep=4 e2e=4.233s job=4.103s ok=True execRSS=424MiB
+  strong   bcast   n= 4096 1x1 rep=0 e2e=15.604s job=14.755s ok=True execRSS=716MiB
+  strong   bcast   n= 4096 1x1 rep=1 e2e=16.554s job=15.683s ok=True execRSS=784MiB
+  strong   bcast   n= 4096 1x1 rep=2 e2e=16.070s job=14.624s ok=True execRSS=787MiB
+  strong   bcast   n= 4096 1x1 rep=3 e2e=13.575s job=12.871s ok=True execRSS=873MiB
+  strong   bcast   n= 4096 1x1 rep=4 e2e=13.311s job=12.760s ok=True execRSS=922MiB
+  strong   block2d n= 4096 1x1 rep=0 e2e=29.936s job=27.539s ok=True execRSS=822MiB
+  strong   block2d n= 4096 1x1 rep=1 e2e=27.830s job=24.851s ok=True execRSS=735MiB
+  strong   block2d n= 4096 1x1 rep=2 e2e=28.580s job=26.333s ok=True execRSS=735MiB
+  strong   block2d n= 4096 1x1 rep=3 e2e=20.919s job=19.539s ok=True execRSS=855MiB
+  strong   block2d n= 4096 1x1 rep=4 e2e=23.951s job=23.139s ok=True execRSS=763MiB
+== cluster local-cluster[2,1,1024]: startup 3.52s, executors=2
+  strong   bcast   n=  512 2x1 rep=0 e2e=0.398s job=0.311s ok=True execRSS=329MiB
+  strong   bcast   n=  512 2x1 rep=1 e2e=0.308s job=0.265s ok=True execRSS=312MiB
+  strong   bcast   n=  512 2x1 rep=2 e2e=0.350s job=0.286s ok=True execRSS=296MiB
+  strong   bcast   n=  512 2x1 rep=3 e2e=0.289s job=0.208s ok=True execRSS=273MiB
+  strong   bcast   n=  512 2x1 rep=4 e2e=0.244s job=0.199s ok=True execRSS=278MiB
+  strong   block2d n=  512 2x1 rep=0 e2e=1.249s job=1.218s ok=True execRSS=364MiB
+  strong   block2d n=  512 2x1 rep=1 e2e=0.878s job=0.865s ok=True execRSS=340MiB
+  strong   block2d n=  512 2x1 rep=2 e2e=0.721s job=0.708s ok=True execRSS=336MiB
+  strong   block2d n=  512 2x1 rep=3 e2e=0.797s job=0.780s ok=True execRSS=331MiB
+  strong   block2d n=  512 2x1 rep=4 e2e=0.828s job=0.809s ok=True execRSS=325MiB
+  strong   bcast   n= 1024 2x1 rep=0 e2e=0.520s job=0.417s ok=True execRSS=345MiB
+  strong   bcast   n= 1024 2x1 rep=1 e2e=0.666s job=0.562s ok=True execRSS=341MiB
+  strong   bcast   n= 1024 2x1 rep=2 e2e=0.939s job=0.750s ok=True execRSS=342MiB
+  strong   bcast   n= 1024 2x1 rep=3 e2e=0.834s job=0.715s ok=True execRSS=299MiB
+  strong   bcast   n= 1024 2x1 rep=4 e2e=0.533s job=0.486s ok=True execRSS=334MiB
+  strong   block2d n= 1024 2x1 rep=0 e2e=1.326s job=1.205s ok=True execRSS=382MiB
+  strong   block2d n= 1024 2x1 rep=1 e2e=1.262s job=1.198s ok=True execRSS=376MiB
+  strong   block2d n= 1024 2x1 rep=2 e2e=1.656s job=1.582s ok=True execRSS=344MiB
+  strong   block2d n= 1024 2x1 rep=3 e2e=1.602s job=1.441s ok=True execRSS=392MiB
+  strong   block2d n= 1024 2x1 rep=4 e2e=0.936s job=0.884s ok=True execRSS=421MiB
+  strong   bcast   n= 2048 2x1 rep=0 e2e=1.839s job=1.715s ok=True execRSS=396MiB
+  strong   bcast   n= 2048 2x1 rep=1 e2e=1.927s job=1.800s ok=True execRSS=395MiB
+  strong   bcast   n= 2048 2x1 rep=2 e2e=2.102s job=1.977s ok=True execRSS=388MiB
+  strong   bcast   n= 2048 2x1 rep=3 e2e=2.094s job=1.921s ok=True execRSS=363MiB
+  strong   bcast   n= 2048 2x1 rep=4 e2e=2.607s job=2.506s ok=True execRSS=349MiB
+  strong   block2d n= 2048 2x1 rep=0 e2e=2.604s job=2.413s ok=True execRSS=434MiB
+  strong   block2d n= 2048 2x1 rep=1 e2e=2.869s job=2.742s ok=True execRSS=391MiB
+  strong   block2d n= 2048 2x1 rep=2 e2e=3.045s job=2.864s ok=True execRSS=402MiB
+  strong   block2d n= 2048 2x1 rep=3 e2e=2.453s job=2.293s ok=True execRSS=432MiB
+  strong   block2d n= 2048 2x1 rep=4 e2e=2.781s job=2.558s ok=True execRSS=410MiB
+  strong   bcast   n= 4096 2x1 rep=0 e2e=22.398s job=19.734s ok=True execRSS=498MiB
+  strong   bcast   n= 4096 2x1 rep=1 e2e=25.991s job=22.509s ok=True execRSS=516MiB
+  strong   bcast   n= 4096 2x1 rep=2 e2e=24.503s job=20.332s ok=True execRSS=551MiB
+  strong   bcast   n= 4096 2x1 rep=3 e2e=22.616s job=19.532s ok=True execRSS=540MiB
+  strong   bcast   n= 4096 2x1 rep=4 e2e=28.038s job=25.214s ok=True execRSS=474MiB
+  strong   block2d n= 4096 2x1 rep=0 e2e=33.584s job=30.312s ok=True execRSS=589MiB
+  strong   block2d n= 4096 2x1 rep=1 e2e=47.565s job=40.979s ok=True execRSS=598MiB
+  strong   block2d n= 4096 2x1 rep=2 e2e=48.949s job=41.069s ok=True execRSS=748MiB
+  strong   block2d n= 4096 2x1 rep=3 e2e=34.591s job=29.124s ok=True execRSS=686MiB
+  strong   block2d n= 4096 2x1 rep=4 e2e=20.557s job=17.296s ok=True execRSS=703MiB
+  weak     bcast   n= 2560 2x1 rep=0 e2e=7.241s job=5.264s ok=True execRSS=359MiB
+  weak     bcast   n= 2560 2x1 rep=1 e2e=5.942s job=4.405s ok=True execRSS=386MiB
+  weak     bcast   n= 2560 2x1 rep=2 e2e=5.549s job=4.839s ok=True execRSS=411MiB
+  weak     bcast   n= 2560 2x1 rep=3 e2e=4.976s job=4.471s ok=True execRSS=356MiB
+  weak     bcast   n= 2560 2x1 rep=4 e2e=4.520s job=4.033s ok=True execRSS=440MiB
+  weak     block2d n= 2560 2x1 rep=0 e2e=5.662s job=5.360s ok=True execRSS=468MiB
+  weak     block2d n= 2560 2x1 rep=1 e2e=4.885s job=4.476s ok=True execRSS=499MiB
+  weak     block2d n= 2560 2x1 rep=2 e2e=5.328s job=4.946s ok=True execRSS=564MiB
+  weak     block2d n= 2560 2x1 rep=3 e2e=6.824s job=6.324s ok=True execRSS=534MiB
+  weak     block2d n= 2560 2x1 rep=4 e2e=6.044s job=5.663s ok=True execRSS=434MiB
+== cluster local-cluster[4,1,1024]: startup 5.49s, executors=4
+  strong   bcast   n=  512 4x1 rep=0 e2e=0.691s job=0.547s ok=True execRSS=193MiB
+  strong   bcast   n=  512 4x1 rep=1 e2e=0.582s job=0.530s ok=True execRSS=192MiB
+  strong   bcast   n=  512 4x1 rep=2 e2e=1.213s job=1.123s ok=True execRSS=170MiB
+  strong   bcast   n=  512 4x1 rep=3 e2e=1.336s job=1.237s ok=True execRSS=188MiB
+  strong   bcast   n=  512 4x1 rep=4 e2e=1.984s job=1.808s ok=True execRSS=164MiB
+  strong   block2d n=  512 4x1 rep=0 e2e=3.644s job=3.498s ok=True execRSS=249MiB
+  strong   block2d n=  512 4x1 rep=1 e2e=5.305s job=5.269s ok=True execRSS=215MiB
+  strong   block2d n=  512 4x1 rep=2 e2e=3.621s job=3.334s ok=True execRSS=257MiB
+  strong   block2d n=  512 4x1 rep=3 e2e=2.065s job=1.978s ok=True execRSS=234MiB
+  strong   block2d n=  512 4x1 rep=4 e2e=7.081s job=6.975s ok=True execRSS=208MiB
+  strong   bcast   n= 1024 4x1 rep=0 e2e=1.697s job=1.067s ok=True execRSS=242MiB
+  strong   bcast   n= 1024 4x1 rep=1 e2e=1.135s job=0.856s ok=True execRSS=272MiB
+  strong   bcast   n= 1024 4x1 rep=2 e2e=2.085s job=1.778s ok=True execRSS=247MiB
+  strong   bcast   n= 1024 4x1 rep=3 e2e=3.553s job=2.732s ok=True execRSS=223MiB
+  strong   bcast   n= 1024 4x1 rep=4 e2e=4.128s job=3.413s ok=True execRSS=182MiB
+  strong   block2d n= 1024 4x1 rep=0 e2e=3.560s job=2.848s ok=True execRSS=259MiB
+  strong   block2d n= 1024 4x1 rep=1 e2e=4.556s job=4.109s ok=True execRSS=249MiB
+  strong   block2d n= 1024 4x1 rep=2 e2e=4.968s job=4.563s ok=True execRSS=256MiB
+  strong   block2d n= 1024 4x1 rep=3 e2e=5.804s job=5.432s ok=True execRSS=230MiB
+  strong   block2d n= 1024 4x1 rep=4 e2e=3.777s job=3.080s ok=True execRSS=269MiB
+  strong   bcast   n= 2048 4x1 rep=0 e2e=9.028s job=8.150s ok=True execRSS=295MiB
+  strong   bcast   n= 2048 4x1 rep=1 e2e=9.771s job=7.829s ok=True execRSS=206MiB
+  strong   bcast   n= 2048 4x1 rep=2 e2e=8.930s job=7.142s ok=True execRSS=283MiB
+  strong   bcast   n= 2048 4x1 rep=3 e2e=5.957s job=4.679s ok=True execRSS=277MiB
+  strong   bcast   n= 2048 4x1 rep=4 e2e=5.346s job=4.222s ok=True execRSS=271MiB
+  strong   block2d n= 2048 4x1 rep=0 e2e=13.993s job=12.513s ok=True execRSS=300MiB
+  strong   block2d n= 2048 4x1 rep=1 e2e=11.724s job=9.986s ok=True execRSS=305MiB
+  strong   block2d n= 2048 4x1 rep=2 e2e=10.214s job=8.916s ok=True execRSS=338MiB
+  strong   block2d n= 2048 4x1 rep=3 e2e=13.016s job=12.545s ok=True execRSS=296MiB
+  strong   block2d n= 2048 4x1 rep=4 e2e=18.012s job=16.680s ok=True execRSS=262MiB
+  strong   bcast   n= 4096 4x1 rep=0 e2e=84.157s job=75.333s ok=True execRSS=227MiB
+  strong   bcast   n= 4096 4x1 rep=1 e2e=77.675s job=64.702s ok=True execRSS=267MiB
+  strong   bcast   n= 4096 4x1 rep=2 e2e=54.117s job=47.215s ok=True execRSS=360MiB
+  strong   bcast   n= 4096 4x1 rep=3 e2e=57.105s job=46.081s ok=True execRSS=295MiB
+  strong   bcast   n= 4096 4x1 rep=4 e2e=57.906s job=47.519s ok=True execRSS=340MiB
+26/11/23 18:08:51 ERROR DAGScheduler: Failed to update accumulator 7994 (org.apache.spark.api.python.PythonAccumulatorV2) for task 23
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:403)
+	at java.base/sun.nio.ch.SocketChannelImpl.blockingRead(SocketChannelImpl.java:1431)
+	at java.base/sun.nio.ch.SocketInputStream.implRead(SocketInputStream.java:70)
+	at java.base/sun.nio.ch.SocketInputStream.read(SocketInputStream.java:78)
+	at java.base/sun.nio.ch.SocketInputStream.read(SocketInputStream.java:61)
+	at org.apache.spark.api.python.PythonAccumulatorV2.merge(PythonRDD.scala:816)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1(DAGScheduler.scala:1870)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1$adapted(DAGScheduler.scala:1861)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.updateAccumulators(DAGScheduler.scala:1861)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskCompletion(DAGScheduler.scala:2245)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3583)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3517)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3506)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+26/11/23 18:08:52 ERROR DAGScheduler: Failed to update accumulator 7994 (org.apache.spark.api.python.PythonAccumulatorV2) for task 25
+java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:62)
+	at java.base/sun.nio.ch.SocketChannelImpl.tryWrite(SocketChannelImpl.java:1453)
+	at java.base/sun.nio.ch.SocketChannelImpl.blockingWriteFully(SocketChannelImpl.java:1487)
+	at java.base/sun.nio.ch.SocketOutputStream.write(SocketOutputStream.java:61)
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:125)
+	at java.base/java.io.BufferedOutputStream.implFlush(BufferedOutputStream.java:252)
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:240)
+	at java.base/java.io.DataOutputStream.flush(DataOutputStream.java:134)
+	at org.apache.spark.api.python.PythonAccumulatorV2.merge(PythonRDD.scala:814)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1(DAGScheduler.scala:1870)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1$adapted(DAGScheduler.scala:1861)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.updateAccumulators(DAGScheduler.scala:1861)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskCompletion(DAGScheduler.scala:2245)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3583)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3517)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3506)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+26/11/23 18:08:54 ERROR DAGScheduler: Failed to update accumulator 7994 (org.apache.spark.api.python.PythonAccumulatorV2) for task 26
+java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:62)
+	at java.base/sun.nio.ch.SocketChannelImpl.tryWrite(SocketChannelImpl.java:1453)
+	at java.base/sun.nio.ch.SocketChannelImpl.blockingWriteFully(SocketChannelImpl.java:1487)
+	at java.base/sun.nio.ch.SocketOutputStream.write(SocketOutputStream.java:61)
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:125)
+	at java.base/java.io.BufferedOutputStream.implFlush(BufferedOutputStream.java:252)
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:240)
+	at java.base/java.io.DataOutputStream.flush(DataOutputStream.java:134)
+	at org.apache.spark.api.python.PythonAccumulatorV2.merge(PythonRDD.scala:814)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1(DAGScheduler.scala:1870)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$updateAccumulators$1$adapted(DAGScheduler.scala:1861)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.updateAccumulators(DAGScheduler.scala:1861)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskCompletion(DAGScheduler.scala:2245)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3583)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3517)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3506)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+26/11/23 18:08:57 ERROR TaskSchedulerImpl: Lost executor 0 on 192.168.1.122: Worker shutting down
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/7 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/4 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/5 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/6 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/8 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/10 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/9 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/11 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR Master: Application A4-distributed-matmul with ID app-20261123175612-0000 failed 10 times; removing it
+26/11/23 18:08:57 ERROR Worker: Failed to launch executor app-20261123175612-0000/12 for A4-distributed-matmul.
+java.lang.IllegalStateException: Shutdown hooks cannot be modified during shutdown.
+	at org.apache.spark.util.SparkShutdownHookManager.add(ShutdownHookManager.scala:212)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:159)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:148)
+	at org.apache.spark.deploy.worker.ExecutorRunner.start(ExecutorRunner.scala:83)
+	at org.apache.spark.deploy.worker.Worker$$anonfun$receive$1.applyOrElse(Worker.scala:662)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:116)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+26/11/23 18:08:57 ERROR TaskSchedulerImpl: Lost executor 1 on 192.168.1.122: Worker shutting down
+26/11/23 18:08:57 ERROR TaskSchedulerImpl: Lost executor 3 on 192.168.1.122: Command exited with code 143
+26/11/23 18:08:57 ERROR TaskSchedulerImpl: Lost executor 2 on 192.168.1.122: Command exited with code 143
+26/11/23 18:08:57 ERROR Utils: Uncaught exception in thread shutdown-hook-0
+org.apache.spark.SparkException: Exception thrown in awaitResult: 
+	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:70)
+	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:44)
+	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+	at org.apache.spark.deploy.client.StandaloneAppClient.stop(StandaloneAppClient.scala:298)
+	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.org$apache$spark$scheduler$cluster$StandaloneSchedulerBackend$$stop(StandaloneSchedulerBackend.scala:285)
+	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.stop(StandaloneSchedulerBackend.scala:143)
+	at org.apache.spark.scheduler.SchedulerBackend.stop(SchedulerBackend.scala:34)
+	at org.apache.spark.scheduler.SchedulerBackend.stop$(SchedulerBackend.scala:34)
+	at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stop(CoarseGrainedSchedulerBackend.scala:56)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.$anonfun$stop$2(TaskSchedulerImpl.scala:957)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1314)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:957)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$stop$4(DAGScheduler.scala:3499)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1314)
+	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:3499)
+	at org.apache.spark.SparkContext.$anonfun$stop$12(SparkContext.scala:2357)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1314)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2357)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2308)
+	at org.apache.spark.SparkContext.$anonfun$new$37(SparkContext.scala:712)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:231)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1963)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:205)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:205)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:184)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: org.apache.spark.SparkException: Could not find AppClient.
+	at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:181)
+	at org.apache.spark.rpc.netty.Dispatcher.postLocalMessage(Dispatcher.scala:146)
+	at org.apache.spark.rpc.netty.NettyRpcEnv.askAbortable(NettyRpcEnv.scala:245)
+	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.askAbortable(NettyRpcEnv.scala:561)
+	at org.apache.spark.rpc.netty.NettyRpcEndpointRef.ask(NettyRpcEnv.scala:565)
+	at org.apache.spark.rpc.RpcEndpointRef.ask(RpcEndpointRef.scala:72)
+	... 31 more

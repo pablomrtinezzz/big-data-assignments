@@ -1,0 +1,26 @@
+seq_ikj  n=  512 p=1 median=0.0208s rss=7.8MiB
+omp_ikj  n=  512 p=1 median=0.0431s rss=7.8MiB
+omp_ikj  n=  512 p=2 median=0.0233s rss=7.9MiB
+omp_ikj  n=  512 p=4 median=0.0121s rss=7.9MiB
+omp_ikj  n=  512 p=8 median=0.0117s rss=8.1MiB
+seq_ikj  n= 1024 p=1 median=0.1569s rss=25.8MiB
+omp_ikj  n= 1024 p=1 median=0.3377s rss=25.8MiB
+omp_ikj  n= 1024 p=2 median=0.1774s rss=25.9MiB
+omp_ikj  n= 1024 p=4 median=0.0982s rss=26.0MiB
+omp_ikj  n= 1024 p=8 median=0.0748s rss=26.1MiB
+seq_ikj  n= 2048 p=1 median=1.3088s rss=97.8MiB
+omp_ikj  n= 2048 p=1 median=2.6419s rss=97.8MiB
+omp_ikj  n= 2048 p=2 median=1.4248s rss=97.9MiB
+omp_ikj  n= 2048 p=4 median=0.8385s rss=98.0MiB
+omp_ikj  n= 2048 p=8 median=0.7146s rss=98.1MiB
+seq_ikj  n= 3072 p=1 median=4.6508s rss=217.8MiB
+omp_ikj  n= 3072 p=1 median=10.0241s rss=217.8MiB
+omp_ikj  n= 3072 p=2 median=4.7670s rss=217.9MiB
+omp_ikj  n= 3072 p=4 median=3.4942s rss=218.0MiB
+omp_ikj  n= 3072 p=8 median=2.8755s rss=218.1MiB
+seq_ikj  n= 4096 p=1 median=11.3705s rss=381.0MiB
+omp_ikj  n= 4096 p=1 median=22.7011s rss=385.8MiB
+omp_ikj  n= 4096 p=2 median=11.5237s rss=385.9MiB
+omp_ikj  n= 4096 p=4 median=8.8739s rss=386.0MiB
+omp_ikj  n= 4096 p=8 median=7.3474s rss=386.1MiB
+wrote /Users/pablo/Desktop/Big Data/teoría/ASSIGNMENTS/assignment_4/benchmarks/results/raw_baselines.csv (125 rows)

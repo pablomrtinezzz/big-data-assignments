@@ -19,7 +19,7 @@ Across all assignments, the core computational workload centers on **square matr
 | **[Assignment 1](./assignment_1/)** | Language & Runtime Overhead | C (AOT, -O2 vs -O0), Java HotSpot (JIT), CPython (Interpreted) | Completed | [`Assignment01_Martinez_Report.pdf`](./assignment_1/Assignment01_Martinez_Report.pdf) |
 | **[Assignment 2](./assignment_2/)** | Dense Optimisations & Sparse Matrices | C Baseline vs Cache Blocking, Loop Reordering ($i\text{-}k\text{-}j$), and Sparse CSR | Completed | [`Assignment02_Martinez_Report.pdf`](./assignment_2/Assignment02_Martinez_Report.pdf) |
 | **[Assignment 3](./assignment_3/)** | Shared-Memory Parallelism & Vectorisation | OpenMP (Static/Dynamic), 1-Thread Overhead, ARM NEON 128-bit SIMD | Completed | [`Assignment03_Martinez_Report.pdf`](./assignment_3/Assignment03_Martinez_Report.pdf) \| [Presentation](./assignment_3/presentation/Assignment03_Presentation.pdf) |
-| **[Assignment 4](./assignment_4/)** | Distributed Matrix Scaling | Distributed computing framework / cluster scaling | Planned | — |
+| **[Assignment 4](./assignment_4/)** | Distributed Matrix Multiplication | Apache Spark (PySpark RDD): row-panel + broadcast vs. 2-D block shuffle, strong/weak scaling | Completed | [`Assignment04_Martinez_Report.pdf`](./assignment_4/Assignment04_Martinez_Report.pdf) |
 
 ---
 
